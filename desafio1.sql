@@ -32,7 +32,7 @@ foreign key (album_id) references albuns (album_id)
 create table SpotifyClone.planos(
 plano_id tinyint not null primary key,
 nome varchar(100) not null,
-valor double(4,2) not null
+valor decimal(4,2) not null
 )engine =InnoDB;
 
 
