@@ -36,11 +36,11 @@ CREATE TABLE songs(
 );
 
 CREATE TABLE play_history(
-	user_id INT,
     song_id INT,
-	CONSTRAINT PRIMARY KEY (user_id, song_id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (song_id) REFERENCES songs(song_id)
+    user_id INT,
+	CONSTRAINT PRIMARY KEY (song_id, user_id),
+    FOREIGN KEY (song_id) REFERENCES songs(song_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 CREATE TABLE following_artists(
