@@ -17,8 +17,8 @@ CREATE TABLE plans (
     plan_price DECIMAL(5,2) NOT NULL
 ) Engine = InnoDB;
 
-CREATE TABLE users(
-    user_id  INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(30),
     user_age INT,
     plan_id INT,
@@ -49,7 +49,7 @@ CREATE TABLE user_history (
     user_id INT,
     song_id INT,
     CONSTRAINT PRIMARY KEY (user_id, song_id),
-    FOREIGN KEY (user_id) REFERENCES `users`(user_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (song_id) REFERENCES songs(song_id)
 ) Engine = InnoDB;
 
