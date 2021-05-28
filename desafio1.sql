@@ -5,7 +5,7 @@ USE SpotifyClone;
 CREATE TABLE plans(
 	plans_id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(45) NOT NULL,
-	price FLOAT NOT NULL
+	price DECIMAL(5, 2) NOT NULL
 );
 
 CREATE TABLE users(
@@ -54,14 +54,14 @@ CREATE TABLE following_artists(
 INSERT INTO plans(name, price)
 VALUES
 ('gratuito', 0),
-('familiar', 7.99),
-('universitário', 5.99);
+('universitário', 5.99),
+('familiar', 7.99);
 
 INSERT INTO users(name,  age, plans_id)
 VALUES 
 ('Thati', 23, 1),
-('Cintia', 35, 2),
-('Bill', 20, 3),
+('Cintia', 35, 3),
+('Bill', 20, 2),
 ('Roger', 45, 1);
 
 INSERT INTO artists(name)
