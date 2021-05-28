@@ -1,4 +1,4 @@
-CREATE VIEW perfil_artistas AS
+-- CREATE VIEW perfil_artistas AS
 SELECT
 t.name AS artista,
 a.name AS album,
@@ -14,4 +14,4 @@ ON f.artist_id = t.artist_id
 GROUP BY t.name
 ) AS s
 ON t.name = s.artista
-ORDER BY seguidores DESC, artista;
+ORDER BY seguidores DESC, artista, album;
