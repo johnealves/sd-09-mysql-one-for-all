@@ -31,8 +31,8 @@ CREATE TABLE albums(
 ) engine = InnoDB;
 
 CREATE TABLE cancoes(
-	cancoes_id INT PRIMARY KEY NOT NULL,
-    cancoes VARCHAR(50) NOT NULL,
+	cancao_id INT PRIMARY KEY NOT NULL,
+    cancao VARCHAR(50) NOT NULL,
     album_id INT NOT NULL,
     artista_id INT NOT NULL,
     FOREIGN KEY (album_id) REFERENCES albums(album_id),
@@ -41,10 +41,10 @@ CREATE TABLE cancoes(
 
 CREATE TABLE historico_de_reproducoes(
 	usuario_id INT NOT NULL,
-    cancoes_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY(usuario_id, cancoes_id),
+    cancao_id INT NOT NULL,
+    CONSTRAINT PRIMARY KEY(usuario_id, cancao_id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
-    FOREIGN KEY (cancoes_id) REFERENCES cancoes(cancoes_id)
+    FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguindo_artistas(
@@ -83,7 +83,7 @@ VALUES
 	(4, 'Incandescent', 3),
 	(5, 'Temporary Culture', 4);
 
-INSERT INTO cancoes (cancoes_id, cancoes, album_id, artista_id)
+INSERT INTO cancoes (cancao_id, cancao, album_id, artista_id)
 VALUES
 	(1, 'Soul For Us', 1, 1),
 	(2, 'Reflections Of Magic', 1, 1),
@@ -104,7 +104,7 @@ VALUES
 	(17, 'Words Of Her Life', 5, 4),
 	(18, 'Without My Streets', 5, 4);
 
-INSERT INTO historico_de_reproducoes(usuario_id, cancoes_id)
+INSERT INTO historico_de_reproducoes(usuario_id, cancao_id)
 VALUES
 	(1, 1),
 	(1, 6),
