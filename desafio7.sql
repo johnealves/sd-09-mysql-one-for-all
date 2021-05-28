@@ -14,4 +14,4 @@ ON f.artist_id = t.artist_id
 GROUP BY t.name
 ) AS s
 ON t.name = s.artista
-ORDER BY seguidores DESC, artista, album;
+ORDER BY seguidores DESC, artista ASC, album ASC;
