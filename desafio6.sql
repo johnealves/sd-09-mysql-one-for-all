@@ -12,6 +12,6 @@ CREATE VIEW faturamento_atual AS
         ROUND(AVG(p.plan_price), 2) AS faturamento_medio,
         SUM(p.plan_price) AS faturamento_total
     FROM
-        plans AS p
+        SpotifyClone.plans AS p
             INNER JOIN
-        users AS u ON u.plan_id = p.plan_id;
+        SpotifyClone.users AS u ON u.plan_id = p.plan_id;
