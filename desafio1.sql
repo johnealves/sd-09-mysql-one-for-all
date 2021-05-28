@@ -78,7 +78,7 @@ INSERT INTO artists(artist_name) VALUES
 ('Walter Phoenix'),
 ('Peter Strong'),
 ('Lance Day'),
-('Fred Shannon');
+('Freedie Shannon');
 
 INSERT INTO albums(album_name, artist_id) VALUES
 ('Envious', 1),
