@@ -1,4 +1,4 @@
-USE spotifyclone;
+USE SpotifyClone;
 
 DELIMITER $$
 

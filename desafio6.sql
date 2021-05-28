@@ -5,6 +5,6 @@ CREATE VIEW faturamento_atual AS
         FORMAT(AVG(p.plan_value), 2) AS 'faturamento_medio',
         FORMAT(SUM(p.plan_value), 2) AS 'faturamento_total'
     FROM
-        spotifyclone.user AS u
+        SpotifyClone.user AS u
             JOIN
-        spotifyclone.plan AS p ON p.plan_id = u.plan_id;
+        SpotifyClone.plan AS p ON p.plan_id = u.plan_id;
