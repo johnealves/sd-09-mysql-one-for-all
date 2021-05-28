@@ -2,38 +2,38 @@ DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
-CREATE TABLE `plans`(
-	`plans_id` INT PRIMARY KEY AUTO_INCREMENT,
-	`name` VARCHAR(45) NOT NULL,
-	`price` FLOAT NOT NULL
-) ENGINE=InnoDB;
+CREATE TABLE plans(
+	plans_id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(45) NOT NULL,
+	price FLOAT NOT NULL
+);
 
 CREATE TABLE users(
 	user_id INT PRIMARY KEY AUTO_INCREMENT,
-    `name` VARCHAR(45) NOT NULL,
+    name VARCHAR(45) NOT NULL,
     age INT,
     plans_id INT NOT NULL,
     FOREIGN KEY (plans_id) REFERENCES plans(plans_id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE artists(
 	artist_id INT PRIMARY KEY AUTO_INCREMENT,
-    `name` VARCHAR(45) NOT NULL
-) ENGINE=InnoDB;
+    name VARCHAR(45) NOT NULL
+);
 
 CREATE TABLE albums(
 	album_id INT PRIMARY KEY AUTO_INCREMENT,
-    `name` VARCHAR(45) NOT NULL,
+    name VARCHAR(45) NOT NULL,
     artist_id INT NOT NULL,
     FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE songs(
 	song_id INT PRIMARY KEY AUTO_INCREMENT,
-    `name` VARCHAR(45) NOT NULL,
+    name VARCHAR(45) NOT NULL,
     album_id INT NOT NULL,
     FOREIGN KEY (album_id) REFERENCES albums(album_id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE play_history(
 	user_id INT,
@@ -41,15 +41,15 @@ CREATE TABLE play_history(
 	CONSTRAINT PRIMARY KEY (user_id, song_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (song_id) REFERENCES songs(song_id)
-) ENGINE=InnoDB;
+);
 
-CREATE TABLE `following_artists`(
+CREATE TABLE following_artists(
 	user_id INT,
     artist_id INT,
 	CONSTRAINT PRIMARY KEY (user_id, artist_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
-) ENGINE=InnoDB;
+);
 
 INSERT INTO plans(name, price)
 VALUES
