@@ -14,5 +14,5 @@ WHERE h.user_id = userid
 INTO quantidade;
 RETURN quantidade;
 
-END$$
+END $$
 DELIMITER ;
