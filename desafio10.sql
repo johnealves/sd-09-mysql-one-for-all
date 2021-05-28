@@ -10,9 +10,9 @@ SELECT
 COUNT(*)
 FROM
 SpotifyClone.historico AS h
-WHERE user_id = userid
+WHERE h.user_id = userid
 INTO quantidade;
 RETURN quantidade;
 
-END
-$$ DELIMITER ;
+END$$
+DELIMITER ;
