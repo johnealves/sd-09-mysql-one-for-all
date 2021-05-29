@@ -7,4 +7,5 @@ CREATE VIEW top_3_artistas AS
     WHERE
         ca.artista_id = usa.artista_id
     GROUP BY ca.artista_id
+    having `seguidores` > 1
     ORDER BY `seguidores` DESC, ca.artista ASC
