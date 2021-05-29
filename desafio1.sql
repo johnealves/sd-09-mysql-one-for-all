@@ -70,7 +70,7 @@ INSERT INTO Album (album, artista_id)
 VALUES
 ('Envious', 1),
 ('Exuberant', 1),
-('Exuberant', 2),
+('Hallowed Steam', 2),
 ('Incandescent', 3),
 ('Temporary Culture', 4);
 
@@ -80,14 +80,6 @@ VALUES
 ('Cintia', 35, 3),
 ('Bill', 20, 2),
 ('Roger', 45, 1);
-
-INSERT INTO Album (album, artista_id)
-VALUES
-('Envious', 1),
-('Exuberant', 1),
-('Exuberant', 2),
-('Incandescent', 3),
-('Temporary Culture', 4);
 
 INSERT INTO Cancao (cancao, album_id)
 VALUES
@@ -119,9 +111,9 @@ VALUES
 (2, 13),
 (2, 17),
 (2, 2),
-(2, 7),
+(2, 15),
 (3, 4),
-(3, 17),
+(3, 16),
 (3, 6),
 (4, 3),
 (4, 18),
