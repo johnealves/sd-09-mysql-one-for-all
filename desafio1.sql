@@ -83,9 +83,9 @@ VALUES
   
 INSERT INTO usuarios (nome, idade, plano_id)
 VALUES
-  ('Tati', 23, 1),
+  ('Thati', 23, 1),
   ('Cintia', 35, 3),
-  ('Bili', 20, 2),
+  ('Bill', 20, 2),
   ('Roger', 45, 1);
   
 INSERT INTO cancoes (cancao, album_id)
