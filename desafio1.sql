@@ -32,7 +32,8 @@ CREATE TABLE album(
 
 CREATE TABLE song(
     song_id INT PRIMARY KEY AUTO_INCREMENT,
-    song_title VARCHAR(30) NOT NULL,    
+    song_title VARCHAR(30) NOT NULL,
+    album_id INT NOT NULL,
 	FOREIGN KEY (album_id)
         REFERENCES album (album_id)
 ) engine = InnoDB;
@@ -50,7 +51,7 @@ CREATE TABLE historic(
 CREATE TABLE followers(
     user_id INT NOT NULL,
     artist_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY(user_id, artis_id),
+    CONSTRAINT PRIMARY KEY(user_id, artist_id),
     FOREIGN KEY (user_id)
         REFERENCES users (user_id),
     FOREIGN KEY (artist_id)
