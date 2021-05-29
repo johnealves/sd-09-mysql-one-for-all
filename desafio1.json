@@ -5,7 +5,7 @@
     "tabela_que_contem_plano": "PLANS",
     "coluna_historico_de_reproducoes": "SONG_ID",
     "tabela_que_contem_historico_de_reproducoes": "USER_HISTORY",
-    "coluna_seguindo_artistas": "ARTIST_ID",
+    "coluna_seguindo_artistas": "USER_ID",
     "tabela_que_contem_seguindo_artistas": "FOLLOW",
     "coluna_artista": "ARTIST_NAME",
     "tabela_que_contem_artista": "ARTISTS",
