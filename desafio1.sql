@@ -45,6 +45,7 @@ CREATE TABLE song(
 CREATE TABLE play_history(
     user_id INT,
     song_id INT,
+    PRIMARY KEY (user_id, song_id),
     FOREIGN KEY (user_id) REFERENCES `user`(user_id),
     FOREIGN KEY (song_id) REFERENCES song(song_id)
 ) engine = InnoDB;
@@ -52,6 +53,7 @@ CREATE TABLE play_history(
 CREATE TABLE follow_history(
     user_id INT,
     singer_id INT,
+    PRIMARY KEY (user_id, singer_id),
     FOREIGN KEY (user_id) REFERENCES `user`(user_id),
     FOREIGN KEY (singer_id) REFERENCES singer(singer_id)
 ) engine = InnoDB;
