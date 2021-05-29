@@ -68,7 +68,7 @@ VALUES
 	('Bill', 20, 2),
 	('Roger', 45, 1);
 
-INSERT INTO artistas (artista_id, artista)
+INSERT INTO artistas (artista)
 VALUES
 	('Walter Phoenix'),
 	('Peter Strong'),
