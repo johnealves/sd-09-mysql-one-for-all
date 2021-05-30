@@ -48,7 +48,7 @@ CREATE TABLE history(
 CREATE TABLE following_artist(
     user_id INT NOT NULL,
     artist_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY(user_id, artist_id),
+    PRIMARY KEY(user_id, artist_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     FOREIGN KEY (artist_id) REFERENCES artists (artist_id)
 ) engine = InnoDB;
@@ -118,5 +118,3 @@ VALUES
   (3, 4),
   (18, 4),
   (11, 4);
-
-  -- Começa o jogo!!
