@@ -8,4 +8,4 @@ WHERE flw.artista_id = art.artista_id
 ) AS `seguidores`
 FROM SpotifyClone.artistas AS art
 INNER JOIN SpotifyClone.album_artista AS alb ON alb.artista_id = art.artista_id
-ORDER BY `seguidores` DESC;
+ORDER BY `seguidores` DESC, `artista` ASC;
