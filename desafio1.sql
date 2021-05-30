@@ -103,7 +103,7 @@ VALUES
     (13, 4, 'Home Forever'),
     (14, 4, 'Diamond Power'),
     (15, 4, "Honey, Let's Be Silly"),
-    (16, 5, 'Thang Of ThunderV'),
+    (16, 5, 'Thang Of Thunder'),
     (17, 5, 'Words Of Her Life'),
     (18, 5, 'Without My Streets');
     
