@@ -41,7 +41,7 @@ INSERT INTO SpotifyClone.artistas (nome)
 VALUES
 ('Walter Phoenix'),
 ('Peter Strong'),
-('Peter Strong'),
+('Lance Day'),
 ('Freedie Shannon');
 
 CREATE TABLE SpotifyClone.albuns (
