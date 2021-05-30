@@ -7,7 +7,7 @@ USE SpotifyClone;
 CREATE TABLE `plano`(
     `plano_id` INT PRIMARY KEY AUTO_INCREMENT,
     `nome` VARCHAR(50) NOT NULL,
-    `valor_plano` DOUBLE NOT NULL
+    `valor_plano` DECIMAL(4, 2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE `usuarios`(
@@ -97,7 +97,7 @@ VALUES
   (4, 'Rock His Everything'),
   (4, 'Home Forever'),
   (4, 'Diamond Power'),
-  (4, 'Honey, Lets Be Silly'),
+  (4, "Honey, Let's Be Silly"),
   (5, 'Thang Of Thunder'),
   (5, 'Words Of Her Life'),
   (5, 'Without My Streets');
@@ -112,9 +112,9 @@ VALUES
   (2, 17),
   (2, 2),
   (2, 15),
-  (3, 14),
+  (3, 4),
   (3, 16),
-  (3, 6),
+  (3, 6	),
   (4, 3),
   (4, 18),
   (4, 11);
