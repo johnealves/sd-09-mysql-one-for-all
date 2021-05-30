@@ -66,7 +66,7 @@ VALUES
 
 INSERT INTO `user` (user_id, user_name,	birth_year,	account_id)
 VALUES
-  (1, 'Tathi', 1998, 1),
+  (1, 'Thati', 1998, 1),
   (2, 'Cintia', 1986, 2),
   (3, 'Bill', 2001, 3),
   (4, 'Roger', 1976, 1);
