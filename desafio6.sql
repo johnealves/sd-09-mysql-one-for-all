@@ -1,3 +1,4 @@
+CREATE VIEW faturamento_atual AS
 SELECT FORMAT(ROUND(MIN(account_price), 2), 2) AS faturamento_minimo,
 FORMAT(ROUND(MAX(account_price), 2), 2) AS faturamento_maximo,
 FORMAT(ROUND(AVG(account_price), 2), 2) AS faturamento_medio,
