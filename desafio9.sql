@@ -8,7 +8,8 @@ T1.album AS 'album'
 FROM SpotifyClone.Album AS T1
 INNER JOIN SpotifyClone.Artista AS T2
 ON T1.artista_id = T2.artista_id
-WHERE T2.nome = nome;
+WHERE T2.nome = nome
+ORDER BY `album` ASC;
 END $$
 
 DELIMITER ;
