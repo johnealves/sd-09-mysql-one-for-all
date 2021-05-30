@@ -41,7 +41,7 @@ CREATE TABLE Historico(
     usuario_id INT NOT NULL,
     cancao_id INT NOT NULL,
     PRIMARY KEY (usuario_id, cancao_id),
-    FOREIGN KEY (usuario_id) REFERENCES Usuario (usuario_id),
+    FOREIGN KEY (usuario_id) REFERENCES Usuario (usuario_id) ON DELETE CASCADE,
     FOREIGN KEY (cancao_id) REFERENCES Cancao (cancao_id)
 ) engine = InnoDB;
 
@@ -49,7 +49,7 @@ CREATE TABLE Seguindo(
     usuario_id INT NOT NULL,
     artista_id INT NOT NULL,
     PRIMARY KEY (usuario_id, artista_id),
-    FOREIGN KEY (usuario_id) REFERENCES Usuario (usuario_id),
+    FOREIGN KEY (usuario_id) REFERENCES Usuario (usuario_id) ON DELETE CASCADE,
     FOREIGN KEY (artista_id) REFERENCES Artista (artista_id)
 ) engine = InnoDB;
 
