@@ -5,7 +5,7 @@ CREATE SCHEMA SpotifyClone;
 CREATE TABLE SpotifyClone.Planos(
 plano_id INTEGER NOT NULL AUTO_INCREMENT,
 plano VARCHAR(90),
-valor DOUBLE,
+valor DECIMAL(4, 2) NOT NULL,
 CONSTRAINT PRIMARY KEY(plano_id)
 );
 
