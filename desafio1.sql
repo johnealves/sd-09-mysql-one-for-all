@@ -6,33 +6,33 @@ USE SpotifyClone;
 
 CREATE TABLE plans(
     plan_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(13) NOT NULL,
-    value DECIMAL(3, 2) NOT NULL
+    plan_name VARCHAR(13) NOT NULL,
+    plan_value DECIMAL(3, 2) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE artists(
     artist_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL
+    artist_name VARCHAR(100) NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE users(
     user_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    age INT NOT NULL,
+    user_name VARCHAR(100) NOT NULL,
+    user_age INT NOT NULL,
     plan_id INT NOT NULL,
     FOREIGN KEY (plan_id) REFERENCES plans (plan_id)
 ) engine = InnoDB;
 
 CREATE TABLE albums(
     album_id INT PRIMARY KEY AUTO_INCREMENT,
-    `name` VARCHAR(50) NOT NULL,
+    album_name VARCHAR(50) NOT NULL,
     artist_id INT NOT NULL,
     FOREIGN KEY (artist_id) REFERENCES artists (artist_id)
 ) engine = InnoDB;
 
 CREATE TABLE songs(
     song_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
+    song_name VARCHAR(50) NOT NULL,
     album_id INT NOT NULL,
     FOREIGN KEY (album_id) REFERENCES albums (album_id)
 ) engine = InnoDB;
@@ -53,27 +53,27 @@ CREATE TABLE following_artist(
     FOREIGN KEY (artist_id) REFERENCES artists (artist_id)
 ) engine = InnoDB;
 
-INSERT INTO plans (name, value)
+INSERT INTO plans (plan_name, plan_value)
 VALUES
   ('gratuito', 0),
   ('familiar', 7.99),
   ('universitário', 5.99);
 
-INSERT INTO artists (name)
+INSERT INTO artists (artist_name)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
   ('Freedie Shannon');
 
-INSERT INTO users (name, age, plan_id)
+INSERT INTO users (user_name, user_age, plan_id)
 VALUES
   ('Thati', 23, 1),
   ('Cintia', 35, 2),
   ('Bill', 20, 3),
   ('Roger', 45, 1);
   
-INSERT INTO albums (`name`, artist_id)
+INSERT INTO albums (album_name, artist_id)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
@@ -81,7 +81,7 @@ VALUES
   ('Incandescent', 3),
   ('Temporary Culture', 4);
   
-INSERT INTO songs (name, album_id)
+INSERT INTO songs (song_name, album_id)
 VALUES
   ('Soul For Us', 1),
   ('Reflections Of Magic', 1),
