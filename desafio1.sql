@@ -113,7 +113,7 @@ VALUES
     (3 , 1),
     (4 , 4);
 
-INSERT INTO reproducao (usuario_id, cancao_id)
+INSERT INTO Reproducao (usuario_id, cancao_id)
 VALUES
 	(1 , 1),
     (1 , 6),
