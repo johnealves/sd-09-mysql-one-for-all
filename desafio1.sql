@@ -109,7 +109,7 @@ INSERT INTO albuns (titulo, artista_id)
 
 INSERT INTO cancoes (titulo, album_id)
 	VALUES
-		('Soul Fou Us', 1), -- 1
+		('Soul For Us', 1), -- 1
         ('Reflections Of Magic', 1), -- 2
         ('Dance With Her Own', 1), -- 3
         ('Troubles Of My Inner Fire', 2), -- 4
