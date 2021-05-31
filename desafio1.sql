@@ -11,7 +11,7 @@ CREATE TABLE plans(
 CREATE TABLE users(
   user_id TINYINT PRIMARY KEY AUTO_INCREMENT,
   `user` VARCHAR(20) NOT NULL,
-  age INT NOT NULL,
+  age TINYINT NOT NULL,
   plan_id TINYINT NOT NULL,
   FOREIGN KEY (plan_id) REFERENCES plans(plan_id)
 ) engine = InnoDB;
