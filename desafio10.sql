@@ -4,7 +4,7 @@ CREATE FUNCTION quantidade_musicas_no_historico (id INT)
 RETURNS INT READS SQL DATA
 BEGIN
 DECLARE playlist_history_count INT;
-SELECT 
+SELECT 	
     COUNT(*)
 FROM
     playlist_history
