@@ -11,7 +11,7 @@ CREATE TABLE plans(
 ) engine = InnoDB;
 
 CREATE TABLE users(
-    user_id TINYINT AUTO_INCREMENT PRIMARY KEY,
+    user_id TINYINT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     user_name VARCHAR(50),
     user_age TINYINT,
     plan_id TINYINT,
@@ -31,15 +31,16 @@ CREATE TABLE albums(
 ) engine = InnoDB;
 
 CREATE TABLE followers(
-	followers_id TINYINT AUTO_INCREMENT PRIMARY KEY,
-    artist_id TINYINT,
-    user_id TINYINT,
+	-- followers_id TINYINT AUTO_INCREMENT PRIMARY KEY,
+    artist_id TINYINT NOT NULL,
+    user_id TINYINT NOT NULL,
     FOREIGN KEY (artist_id) REFERENCES artists (artist_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    FOREIGN KEY (user_id) REFERENCES users (user_id),
+    CONSTRAINT PRIMARY KEY (artist_id, user_id)
 ) engine = InnoDB;
 
 CREATE TABLE songs(
-	song_id TINYINT AUTO_INCREMENT PRIMARY KEY,
+	song_id TINYINT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     song_name VARCHAR(70),
     album_id TINYINT,
     artist_name VARCHAR(50),
@@ -47,11 +48,12 @@ CREATE TABLE songs(
 ) engine = InnoDB;
 
 CREATE TABLE historic(
-	historic_id TINYINT AUTO_INCREMENT PRIMARY KEY,
-    user_id TINYINT,
-    song_id TINYINT,
+	-- historic_id TINYINT AUTO_INCREMENT PRIMARY KEY,
+    user_id TINYINT NOT NULL,
+    song_id TINYINT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id),
-    FOREIGN KEY (song_id) REFERENCES songs (song_id) 
+    FOREIGN KEY (song_id) REFERENCES songs (song_id),
+    PRIMARY KEY (user_id, song_id)
 ) engine = InnoDB;
 
 INSERT INTO plans (plan_type, price)
