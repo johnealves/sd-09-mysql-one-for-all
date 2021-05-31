@@ -4,5 +4,5 @@ DELIMITER $$ CREATE TRIGGER trigger_usuario_delete BEFORE DELETE ON SpotifyClone
 DELETE FROM followers
 WHERE user_id = OLD.user_id;
 DELETE FROM reproductions_history
-WHERE user_id = OLD.user_id;
+WHERE user_id = OLD.user;
 END $$ DELIMITER;
