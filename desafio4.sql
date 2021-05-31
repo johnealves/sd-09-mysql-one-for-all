@@ -6,10 +6,9 @@ CREATE VIEW top_3_artistas AS
             FROM
                 spotifyclone.following_artists
             WHERE
-                a.artist_id = following_artists.artist_id) AS seguidores
+                spotifyclone.artists.artist_id = following_artists.artist_id) AS seguidores
     FROM
-        spotifyclone.following_artists f
-            INNER JOIN
-        spotifyclone.artists a ON f.artist_id = a.artist_id
-    GROUP BY 1
-    ORDER BY 2 DESC , 1 ASC LIMIT 3;
+        spotifyclone.artists
+    GROUP BY artist_name, artist_id
+    ORDER BY 2 DESC , 1 ASC
+    LIMIT 3;
