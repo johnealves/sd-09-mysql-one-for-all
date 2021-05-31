@@ -4,11 +4,11 @@ CREATE VIEW top_3_artistas AS
         (SELECT 
                 COUNT(user_id)
             FROM
-                spotifyclone.following_artists
+                SpotifyClone.following_artists
             WHERE
-                spotifyclone.artists.artist_id = following_artists.artist_id) AS seguidores
+                SpotifyClone.artists.artist_id = following_artists.artist_id) AS seguidores
     FROM
-        spotifyclone.artists
+        SpotifyClone.artists
     GROUP BY artist_name, artist_id
     ORDER BY 2 DESC , 1 ASC
     LIMIT 3;
