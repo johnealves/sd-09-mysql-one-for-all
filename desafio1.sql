@@ -38,11 +38,11 @@ CREATE TABLE songs(
 ) engine = InnoDB;
 
 CREATE TABLE songs_history(
-    history_id INT PRIMARY KEY AUTO_INCREMENT,
     song_id INT NOT NULL,
     user_id INT NOT NULL,
     FOREIGN KEY (song_id) REFERENCES songs (song_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    FOREIGN KEY (user_id) REFERENCES users (user_id),
+    PRIMARY KEY (user_id, song_id)
 ) engine = InnoDB;
 
 CREATE TABLE following_artist(
