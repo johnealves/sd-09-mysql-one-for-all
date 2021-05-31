@@ -1,6 +1,8 @@
 USE SpotifyClone;
 DROP FUNCTION quantidade_musicas_no_historico;
-DELIMITER $$ CREATE FUNCTION quantidade_musicas_no_historico(id_user INT) RETURNS INT READS SQL DATA BEGIN
+DELIMITER $$ 
+CREATE FUNCTION quantidade_musicas_no_historico(id_user INT)
+ RETURNS INT READS SQL DATA BEGIN
 DECLARE total_songs INT;
 SELECT COUNT(*)
 FROM reproductions_history AS rh
