@@ -19,4 +19,3 @@ FROM
 (SELECT
 (SELECT valor FROM SpotifyClone.planos WHERE plano_id = UP.plano_id) AS valor
 FROM SpotifyClone.usuario_plano AS UP) AS P;
-
