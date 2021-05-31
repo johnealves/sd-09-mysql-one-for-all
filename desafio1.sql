@@ -7,7 +7,7 @@ USE SpotifyClone;
 CREATE TABLE `plano`(
 	`plano_id` INT PRIMARY KEY AUTO_INCREMENT, 
     `plano` VARCHAR(50) NOT NULL,
-    `valor plano` DOUBLE NOT NULL
+    `valor_plano` DOUBLE NOT NULL
 ) engine = InnoDB;
 
 CREATE TABLE `usuario`(
@@ -25,8 +25,8 @@ CREATE TABLE `artista`(
 
 CREATE TABLE `album`(
     `album_id` INT PRIMARY KEY AUTO_INCREMENT, 
-    `album` VARCHAR(150) NOT NULL,
     `artista_id` INT NOT NULL,
+    `album` VARCHAR(150) NOT NULL,    
 	FOREIGN KEY(`artista_id`) REFERENCES `artista`(`artista_id`)
 ) engine = InnoDB;
 
@@ -53,7 +53,7 @@ CREATE TABLE `historico`(
   FOREIGN KEY(`cancao_id`) REFERENCES `cancao`(`cancao_id`)
 ) engine = InnoDB;
 
-INSERT INTO `plano` (`plano_id`, `plano`, `valor plano`)
+INSERT INTO `plano` (`plano`, `valor_plano`)
 VALUES
 ('gratuito', 0),
 ('familiar', 7.99),
@@ -66,14 +66,14 @@ VALUES
   ('Bill', 20,	3),
   ('Roger', 45, 1);
   
-INSERT INTO `artista` (`artista_id`)
+INSERT INTO `artista` (`artista`)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
   ('Freedie Shannon');
   
-INSERT INTO `album` (`album_id`, `artista`)
+INSERT INTO `album` (`artista_id`, `album`)
 VALUES
   (1, 'Envious'),
   (1, 'Exuberant'),
@@ -102,7 +102,7 @@ VALUES
   (5, 'Without My Streets'),
   (5, 'Words Of Her Life');
   
-INSERT INTO `seguindo` (`usuaruio_id`, `artista_id`)
+INSERT INTO `seguindo` (`usuario_id`, `artista_id`)
 VALUES
   (1, 1),
   (1, 4),
@@ -113,7 +113,7 @@ VALUES
   (3, 1),
   (4, 4);
   
-INSERT INTO `historico` (`usuaruio_id`, `cancao_id`)
+INSERT INTO `historico` (`usuario_id`, `cancao_id`)
 VALUES
   (1, 1),
   (1, 6),
@@ -129,4 +129,6 @@ VALUES
   (4, 3),
   (4, 18),
   (4, 11);
+
+
   
