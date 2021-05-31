@@ -1,6 +1,12 @@
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
+CREATE TABLE plans(
+	plan_id INT PRIMARY KEY AUTO_INCREMENT,
+    plan VARCHAR(45) NOT NULL,
+    plan_value DECIMAL(3, 2) NOT NULL
+);
+
 CREATE TABLE users(
 	user_id INT PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(45) NOT NULL,
@@ -9,10 +15,9 @@ CREATE TABLE users(
     FOREIGN KEY (plan_id) REFERENCES plans (plan_id)
 );
 
-CREATE TABLE plans(
-	plan_id INT PRIMARY KEY AUTO_INCREMENT,
-    plan VARCHAR(45) NOT NULL,
-    plan_value DECIMAL(3, 2) NOT NULL
+CREATE TABLE artists(
+	artist_id INT PRIMARY KEY AUTO_INCREMENT,
+    artist_name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE albums(
@@ -20,11 +25,6 @@ CREATE TABLE albums(
     album_title VARCHAR(100) NOT NULL,
     artist_id INT NOT NULL,
     FOREIGN KEY (artist_id) REFERENCES artists (artist_id)
-);
-
-CREATE TABLE artists(
-	artist_id INT PRIMARY KEY AUTO_INCREMENT,
-    artist_name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE songs(
