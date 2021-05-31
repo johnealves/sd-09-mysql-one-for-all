@@ -10,3 +10,5 @@ where us.nome =  nome_usuario
 into quantidade_musicas;
 return quantidade_musicas;
 end $$
+
+delimiter ;
