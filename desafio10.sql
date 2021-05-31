@@ -1,6 +1,6 @@
 DELIMITER $$
 
-CREATE PROCEDURE albuns_do_artista(IN artist VARCHAR(200))
+CREATE FUNCTION quantidade_musicas_no_historico(IN user_id)
 BEGIN
 SELECT A.artist_name AS artista, AL.album_name AS album
 FROM SpotifyClone.artists AS A
