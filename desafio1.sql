@@ -37,7 +37,7 @@ CREATE TABLE songs(
     FOREIGN KEY (album_id) REFERENCES albums (album_id)
 ) engine = InnoDB;
 
-CREATE TABLE history(
+CREATE TABLE songs_history(
     history_id INT PRIMARY KEY AUTO_INCREMENT,
     song_id INT NOT NULL,
     user_id INT NOT NULL,
