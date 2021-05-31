@@ -23,7 +23,7 @@ CREATE TABLE artists(
     artist_name VARCHAR(50)
 ) engine = InnoDB;
 
-CREATE TABLE albuns(
+CREATE TABLE albums(
     album_id TINYINT AUTO_INCREMENT PRIMARY KEY,
     album_name VARCHAR(50),
     artist_id TINYINT,
@@ -42,15 +42,16 @@ CREATE TABLE songs(
 	song_id TINYINT AUTO_INCREMENT PRIMARY KEY,
     song_name VARCHAR(70),
     album_id TINYINT,
-    FOREIGN KEY (album_id) REFERENCES albuns (album_id) 
+    artist_name VARCHAR(50),
+    FOREIGN KEY (album_id) REFERENCES albums (album_id)
 ) engine = InnoDB;
 
 CREATE TABLE historic(
 	historic_id TINYINT AUTO_INCREMENT PRIMARY KEY,
     user_id TINYINT,
-    artist_id TINYINT,
+    song_id TINYINT,
     FOREIGN KEY (user_id) REFERENCES users (user_id),
-    FOREIGN KEY (artist_id) REFERENCES artists (artist_id) 
+    FOREIGN KEY (song_id) REFERENCES songs (song_id) 
 ) engine = InnoDB;
 
 INSERT INTO plans (plan_type, price)
@@ -73,7 +74,7 @@ INSERT INTO artists (artist_name)
   ('Lance Day'),
   ('Freedie Shannon');
   
-INSERT INTO albuns (album_name, artist_id)
+INSERT INTO albums (album_name, artist_id)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
@@ -92,25 +93,41 @@ INSERT INTO followers (artist_id, user_id)
   (1, 3),
   (4, 4);
   
-INSERT INTO songs (song_name, album_id)
+INSERT INTO songs (song_name, album_id, artist_name)
   VALUES 
-	('Soul For Us', 1),
-    ('Reflections Of Magic', 1),
-    ('Dance With Her Own', 1),
-    ('Troubles Of My Inner Fire', 2),
-    ('Time Fireworks', 2),
-    ('Magic Circus', 3),
-    ('Honey, So Do I', 3),
-    ('Sweetie, Let\'s Go Wild', 3),
-    ('She Knows', 3),
-    ('Fantasy For Me', 4),
-    ('Celebration Of More', 4),
-    ('Rock His Everything', 4),
-    ('Home Forever', 4),
-    ('Diamond Power', 4),
-    ('Honey, Let\'s Be Silly', 4);
-    
-    
--- INSERT INTO historic (user_id, artist_id)
-  
-  
+	 ('Soul For Us', 1, 'Walter Phoenix'),
+     ('Reflections Of Magic', 1, 'Walter Phoenix'),
+     ('Dance With Her Own', 1, 'Walter Phoenix'),
+     ('Troubles Of My Inner Fire', 1, 'Walter Phoenix'),
+     ('Time Fireworks', 1, 'Walter Phoenix'),
+     ('Magic Circus', 2, 'Peter Strong'),
+     ('Honey, So Do I', 2, 'Peter Strong'),
+     ('Sweetie, Let\'s Go Wild', 2, 'Peter Strong'),
+     ('She Knows', 2, 'Peter Strong'),
+     ('Fantasy For Me', 3, 'Lance Day'),
+     ('Celebration Of More', 3, 'Lance Day'),
+     ('Rock His Everything', 3, 'Lance Day'),
+     ('Home Forever', 3, 'Lance Day'),
+     ('Diamond Power', 3, 'Lance Day'),
+     ('Honey, Let\'s Be Silly', 3, 'Lance Day'),
+     ('Thang Of Thunder', 4, 'Freedie Shannon'),
+     ('Words Of Her Life', 4, 'Freedie Shannon'),
+     ('Without My Streets', 4, 'Freedie Shannon');
+     
+     
+ INSERT INTO historic (user_id, song_id) 
+ VALUES 
+   (1, 1),
+   (1, 6),
+   (1, 14),
+   (1, 16),
+   (2, 13),
+   (2, 17),
+   (2, 2),
+   (2, 15),
+   (3, 4),
+   (3, 16),
+   (3, 6),
+   (4, 3),
+   (4, 18),
+   (4, 11);
