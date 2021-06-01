@@ -1,4 +1,4 @@
-CREATE VIEW historico_reproducao_usuarios AS
+CREATE VIEW estatisticas_musicais AS
     SELECT
         usuarios.usuario AS usuario, musicas.musica AS nome
     FROM

@@ -5,7 +5,7 @@ CREATE DATABASE SpotifyClone;
 CREATE TABLE SpotifyClone.planos (
 plano_id INT AUTO_INCREMENT NOT NULL,
 plano VARCHAR(255) NOT NULL,
-valor DOUBLE NOT NULL,
+valor DECIMAL(4, 2) NOT NULL,
 CONSTRAINT PRIMARY KEY (plano_id)
 );
 
