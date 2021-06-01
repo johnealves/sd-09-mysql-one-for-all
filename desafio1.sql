@@ -7,7 +7,7 @@ USE SpotifyClone;
 CREATE TABLE plans(
     plan_id TINYINT AUTO_INCREMENT PRIMARY KEY, 
     plan_type VARCHAR(40),
-    price DOUBLE
+    price DECIMAL(5,2)
 ) engine = InnoDB;
 
 CREATE TABLE users(
