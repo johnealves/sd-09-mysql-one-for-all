@@ -1,14 +1,16 @@
 DELIMITER $$
+
 CREATE FUNCTION quantidade_musicas_no_historico (usuario_id INT)
 RETURNS INT READS SQL DATA
 BEGIN
-DECLARE tota INT;
+DECLARE total INT;
 SELECT 
-    COUNT(histori.usuario_id)
+    COUNT(h.usuario_id)
 FROM
-    SpotifyClone.historico_reproducao AS histori
+    SpotifyClone.historico_reproducao AS h
 WHERE
-    histori.usuario_id = usuario_id INTO total;
+    h.usuario_id = usuario_id INTO total;
 RETURN total;
 END $$
+
 DELIMITER ;
