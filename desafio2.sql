@@ -1,10 +1,9 @@
 CREATE VIEW estatisticas_musicais AS
-    SELECT
-        usuarios.usuario AS usuario, musicas.musica AS nome
+    SELECT 
+        COUNT(DISTINCT musicas.musica_id) AS cancoes,
+        COUNT(DISTINCT artistas.artista_id) AS artistas,
+        COUNT(DISTINCT albuns.album_id) AS albuns
     FROM
-        SpotifyClone.usuarios AS usuarios
-            INNER JOIN
-        SpotifyClone.historico_reproducoes AS historico ON historico.usuario_id = usuarios.usuario_id
-            INNER JOIN
-        SpotifyClone.musicas AS musicas ON historico.musica_id = musicas.musica_id
-    ORDER BY usuario , nome;
+        SpotifyClone.musicas AS musicas,
+        SpotifyClone.artistas AS artistas,
+        SpotifyClone.albuns AS albuns;
