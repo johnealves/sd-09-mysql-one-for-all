@@ -1,4 +1,3 @@
-USE SpotifyClone;
 DELIMITER $$
 CREATE FUNCTION quantidade_musicas_no_historico(user_name VARCHAR(100))
 RETURNS INT READS SQL DATA
@@ -11,5 +10,3 @@ BEGIN
     RETURN amount;
 END $$
 DELIMITER ;
-
-SELECT quantidade_musicas_no_historico('Bill');
