@@ -6,7 +6,7 @@ BEGIN
 SELECT art.artista_nome AS artista, alb.album_nome AS album
 FROM SpotifyClone.artistas AS art
 INNER JOIN SpotifyClone.album AS alb ON art.artista_id = alb.artista_id
-WHERE art.artista = 'Walter Phoenix' ORDER BY 2 ASC;
+WHERE art.artista_nome = 'Walter Phoenix' ORDER BY 2 ASC;
 END $$
 
 DELIMITER ;
