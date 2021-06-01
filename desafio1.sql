@@ -11,7 +11,7 @@ CONSTRAINT PRIMARY KEY (plano_id)
 
 insert into SpotifyClone.planos (plano, valor) 
 values
-('gratuito', 0), ('familiar', 7.99), ('universitário', 5.99);
+('gratuito', 0.00), ('familiar', 7.99), ('universitário', 5.99);
 
 CREATE TABLE SpotifyClone.usuarios (
 usuario_id INT AUTO_INCREMENT NOT NULL,
