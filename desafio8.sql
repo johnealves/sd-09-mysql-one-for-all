@@ -6,6 +6,6 @@ BEGIN
 	DELETE FROM SpotifyClone.historico_de_reproducao
   WHERE historico_de_reproducao.usuario_id = OLD.usuario_id;
   DELETE FROM SpotifyClone.seguindo_artistas
-  WHERE seguindo_artista.usuario_id = OLD.usuario_id;
+  WHERE seguindo_artistas.usuario_id = OLD.usuario_id;
 END $$
 DELIMITER ;
