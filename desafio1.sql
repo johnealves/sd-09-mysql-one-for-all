@@ -83,6 +83,14 @@ VALUES
   (3, 2),
   (3, 1),
   (4, 4);
+  
+INSERT INTO albums (album_name, artist_id)
+VALUES
+  ('Envious', 1),
+  ('Exuberant', 1),
+  ('Hallowed Steam', 2),
+  ('Incandescent', 3),
+  ('Temporary Culture', 4);
 
 INSERT INTO songs (song_name, album_id)
 VALUES
