@@ -2,59 +2,59 @@ DROP
   SCHEMA IF EXISTS SpotifyClone;
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
-CREATE TABLE `Plans`(
-  plan_id INT PRIMARY KEY AUTO_INCREMENT,
-  plan VARCHAR(13) NOT NULL,
-  plan_value DOUBLE NOT NULL
+CREATE TABLE `Planos`(
+  plano_id INT PRIMARY KEY AUTO_INCREMENT,
+  plano VARCHAR(13) NOT NULL,
+  valor_plano DOUBLE NOT NULL
 ) ENGINE = InnoDB;
-INSERT INTO `Plans`(plan, plan_value)
+INSERT INTO `Planos`(plano, valor_plano)
 VALUES
   ('Gratuito', 0),
-  ('Universitário', 5.99),
+  ('Universitario', 5.99),
   ('Familiar', 7.99);
-CREATE TABLE `Users`(
-  `user_id` INT PRIMARY KEY AUTO_INCREMENT,
-  `user` VARCHAR(50) NOT NULL,
-  age INT NOT NULL,
-  plan_id INT NOT NULL,
-  FOREIGN KEY (plan_id) REFERENCES `Plans`(plan_id)
+CREATE TABLE `Usuarios`(
+  usuario_id INT PRIMARY KEY AUTO_INCREMENT,
+  usuario VARCHAR(50) NOT NULL,
+  idade INT NOT NULL,
+  plano_id INT NOT NULL,
+  FOREIGN KEY (plano_id) REFERENCES `Planos`(plano_id)
 ) ENGINE = InnoDB;
-INSERT INTO `Users`(`user`, age, plan_id)
+INSERT INTO `Usuarios`(usuario, idade, plano_id)
 VALUES
   ('Thati', 23, 1),
   ('Cintia', 35, 3),
   ('Bill', 20, 2),
   ('Roger', 45, 1);
-CREATE TABLE `Artists`(
-  artists_id INT PRIMARY KEY AUTO_INCREMENT,
-  artist VARCHAR(50) NOT NULL
+CREATE TABLE `Artistas`(
+  artista_id INT PRIMARY KEY AUTO_INCREMENT,
+  artista VARCHAR(50) NOT NULL
 ) ENGINE = InnoDB;
-INSERT INTO `Artists`(artist)
+INSERT INTO `Artistas`(artista)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
   ('Freedie Shannon');
-CREATE TABLE `Albums`(
+CREATE TABLE `Albuns`(
   album_id INT PRIMARY KEY AUTO_INCREMENT,
   album VARCHAR(100) NOT NULL,
-  artist_id INT NOT NULL,
-  FOREIGN KEY (artist_id) REFERENCES `Artists`(artist_id)
+  artista_id INT NOT NULL,
+  FOREIGN KEY (artista_id) REFERENCES `Artistas`(artista_id)
 ) ENGINE = InnoDB;
-INSERT INTO `Albums`(album, artist_id)
+INSERT INTO `Albuns`(album, artista_id)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
   ('Hallowed Steam', 2),
   ('Incandescent', 3),
   ('Temporary Culture', 4);
-CREATE TABLE `Songs`(
-  songs_id INT PRIMARY KEY AUTO_INCREMENT,
-  songs VARCHAR(100) NOT NULL,
+CREATE TABLE `Cancoes`(
+  cancao_id INT PRIMARY KEY AUTO_INCREMENT,
+  cancao VARCHAR(100) NOT NULL,
   album_id INT NOT NULL,
-  FOREIGN KEY (album_id) REFERENCES `Albums`(album_id)
+  FOREIGN KEY (album_id) REFERENCES `Albuns`(album_id)
 ) ENGINE = InnoDB;
-INSERT INTO `Songs`(songs, album_id)
+INSERT INTO `Cancoes`(cancao, album_id)
 VALUES
   ('Soul For Us', 1),
   ('Reflections Of Magic', 1),
@@ -74,14 +74,14 @@ VALUES
   ('Thang Of Thunder', 5),
   ('Words Of Her Life', 5),
   ('Without My Streets', 5);
-CREATE TABLE `Users_following_artists`(
-  `user_id` INT,
-  artists_id INT,
-  CONSTRAINT PRIMARY KEY (`user_id`, artists_id),
-  FOREIGN KEY (`user_id`) REFERENCES `Users`(`user_id`),
-  FOREIGN KEY (artists_id) REFERENCES `Artists`(artists_id)
+CREATE TABLE `usuario_seguindo_artistas`(
+  usuario_id INT,
+  artista_id INT,
+  CONSTRAINT PRIMARY KEY (usuario_id, artista_id),
+  FOREIGN KEY (usuario_id) REFERENCES `Usuarios`(usuario_id),
+  FOREIGN KEY (artista_id) REFERENCES `Artistas`(artista_id)
 ) ENGINE = InnoDB;
-INSERT INTO `Users_following_artists`(`user_id`, artists_id)
+INSERT INTO `usuario_seguindo_artistas`(usuario_id, artista_id)
 VALUES
   (1, 1),
   (1, 4),
@@ -91,14 +91,14 @@ VALUES
   (3, 2),
   (3, 1),
   (4, 4);
-CREATE TABLE `Users_history_songs`(
-  `user_id` INT NOT NULL,
-  songs_id INT NOT NULL,
-  CONSTRAINT PRIMARY KEY (`user_id`, songs_id),
-  FOREIGN KEY (`user_id`) REFERENCES `Users`(`user_id`),
-  FOREIGN KEY (songs_id) REFERENCES `Songs`(songs_id)
+CREATE TABLE `usuario_historico_cancoes`(
+  usuario_id INT NOT NULL,
+  cancao_id INT NOT NULL,
+  CONSTRAINT PRIMARY KEY (usuario_id, cancao_id),
+  FOREIGN KEY (usuario_id) REFERENCES `Usuarios`(usuario_id),
+  FOREIGN KEY (cancao_id) REFERENCES `Cancoes`(cancao_id)
 ) ENGINE = InnoDB;
-INSERT INTO `Users_history_songs`
+INSERT INTO `usuario_historico_cancoes`
 VALUES
   (1, 1),
   (1, 6),

@@ -5,13 +5,13 @@ SELECT
     SELECT
       COUNT(*)
     FROM
-      `SpotifyClone`.`Artists`
+      `SpotifyClone`.`Artistas`
   ) AS 'artistas',
   (
     SELECT
       COUNT(*)
     FROM
-      `SpotifyClone`.`Albums`
+      `SpotifyClone`.`Albuns`
   ) AS 'albuns'
 FROM
-  `SpotifyClone`.`Songs`;
+  `SpotifyClone`.`Cancoes`;
