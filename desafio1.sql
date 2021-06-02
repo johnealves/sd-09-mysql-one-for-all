@@ -105,7 +105,7 @@ INSERT INTO SpotifyClone.Songs (song_name, album_id) VALUES
 INSERT INTO SpotifyClone.UserFollowing (user_id, artist_id) VALUES
 (1,	1),
 (1,	4),
-(1,	2),
+(1,	3),
 (2,	1),
 (2,	3),
 (3,	2),
