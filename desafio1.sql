@@ -7,7 +7,7 @@ CREATE TABLE usuario (
 	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     usuario CHAR(20) NOT NULL,
     idade INT(20) NOT NULL,
-    plano_id INTEGER NOT NULL
+    FOREIGN KEY (plano_id) REFERENCES plano (id)
 ) engine = InnoDB;
 
 CREATE TABLE plano (
@@ -24,13 +24,13 @@ CREATE TABLE artista (
 CREATE TABLE musica (
 	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     musica CHAR(20) NOT NULL,
-    album_id INTEGER NOT NULL
+    FOREIGN KEY (album_id) REFERENCES album (id)
 ) engine = InnoDB;
 
 CREATE TABLE album (
 	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     album CHAR(20) NOT NULL,
-    artista_id INTEGER NOT NULL
+    FOREIGN KEY (artista_id) REFERENCES artista (id)
 ) engine = InnoDB;
 
 CREATE TABLE seguindo_artistas (
