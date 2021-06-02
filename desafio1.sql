@@ -4,12 +4,12 @@ CREATE DATABASE SpotifyClone;
 
 USE `SpotifyClone`;
 
-CREATE TABLE `planos`(
+CREATE TABLE planos(
     plano_nome varchar(15) primary key,
-    valor_plano double not null
+    valor_plano decimal(5,2) not null
 ) engine = InnoDB;
 
-CREATE TABLE `usuarios`(
+CREATE TABLE usuarios(
     usuario_id tinyint primary key auto_increment,
     usario_nome varchar(10) not null,
     idade tinyint not null,
@@ -17,11 +17,11 @@ CREATE TABLE `usuarios`(
     foreign key (plano_nome) references planos(plano_nome)
 ) engine = InnoDB;
 
-CREATE TABLE `artistas`(
+CREATE TABLE artistas(
     artista_nome varchar(20) primary key
 ) engine = InnoDB;
 
-CREATE TABLE `seguindo`(
+CREATE TABLE seguindo(
     usuario_id tinyint not null,
     artista_nome varchar(20) not null,
     constraint primary key(usuario_id, artista_nome),
@@ -29,20 +29,20 @@ CREATE TABLE `seguindo`(
     foreign key (artista_nome) references artistas(artista_nome)    
 ) engine = InnoDB;
 
-CREATE TABLE `albums`(
+CREATE TABLE albums(
     album_id tinyint primary key auto_increment,
     album_nome varchar(20) not null,
     artista_nome varchar(20) not null,
     foreign key (artista_nome) references artistas(artista_nome)
 ) engine = InnoDB;
 
-CREATE TABLE `cancoes`(
+CREATE TABLE cancoes(
     musica_nome varchar(30) primary key,
     album_id tinyint not null,
     foreign key (album_id) references albums(album_id)
 ) engine = InnoDB;
 
-CREATE TABLE `historico_reproducao`(
+CREATE TABLE historico_reproducao(
     usuario_id tinyint not null,
     musica_nome varchar(30) not null,
     constraint primary key(usuario_id, musica_nome),
@@ -50,27 +50,27 @@ CREATE TABLE `historico_reproducao`(
     foreign key (musica_nome) references cancoes(musica_nome)
 ) engine = InnoDB;
 
-INSERT INTO `planos` (plano_nome, valor_plano)
+INSERT INTO planos (plano_nome, valor_plano)
 VALUES
-  ('gratuito', 0),
+  ('gratuito', 0.00 ),
   ('familiar', 7.99),
   ('universitário', 5.99);
 
-INSERT INTO `usuarios` (usario_nome, idade, plano_nome)
+INSERT INTO usuarios (usario_nome, idade, plano_nome)
 VALUES
   ('Thati', 23, 'gratuito'),
   ('Cintia', 35, 'familiar'),
   ('Bill', 20, 'universitário'),
   ('Roger', 45, 'gratuito');
   
-INSERT INTO `artistas` (artista_nome)
+INSERT INTO artistas (artista_nome)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
   ('Freedie Shannon');
   
-INSERT INTO `seguindo` (usuario_id, artista_nome)
+INSERT INTO seguindo (usuario_id, artista_nome)
 VALUES
   (1, 'Walter Phoenix'),
   (1, 'Freedie Shannon'),
@@ -81,7 +81,7 @@ VALUES
   (3, 'Walter Phoenix'),
   (4, 'Freedie Shannon');
   
-INSERT INTO `albums` (album_nome, artista_nome)
+INSERT INTO albums (album_nome, artista_nome)
 VALUES
   ('Envious', 'Walter Phoenix'),
   ('Exuberant', 'Walter Phoenix'),
@@ -89,7 +89,7 @@ VALUES
   ('Incandescent', 'Lance Day'),
   ('Temporary Culture', 'Freedie Shannon');
   
-INSERT INTO `cancoes` (musica_nome, album_id)
+INSERT INTO cancoes (musica_nome, album_id)
 VALUES
   ('Soul For Us', 1),
   ('Reflections Of Magic', 1),
@@ -110,7 +110,7 @@ VALUES
   ('Words Of Her Life', 5),
   ('Without My Streets', 5);
   
-INSERT INTO `historico_reproducao` (usuario_id, musica_nome)
+INSERT INTO historico_reproducao (usuario_id, musica_nome)
 VALUES
   (1, 'Soul For Us'),
   (1, 'Magic Circus'),
