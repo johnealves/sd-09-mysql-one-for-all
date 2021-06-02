@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
 CREATE DATABASE SpotifyClone;
 
-USE SpotifyClone;
+USE `SpotifyClone`;
 
 CREATE TABLE planos(
     plano_nome varchar(15) primary key,
