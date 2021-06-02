@@ -1,0 +1,17 @@
+CREATE VIEW `perfil_artistas` AS
+SELECT
+  a.ARTISTA AS 'artista',
+  al.ALBUM AS 'album',
+  COUNT(u.NOME) 'seguidores'
+FROM
+  SEGUIDORES AS s
+  JOIN ARTISTAS AS a ON a.ID_ARTISTA = s.ID_ARTISTA
+  JOIN USUARIOS AS u ON u.ID_USUARIO = s.ID_USUARIO
+  JOIN ALBUNS AS al ON al.ID_ARTISTA = a.ID_ARTISTA
+GROUP BY
+  1,
+  2
+ORDER BY
+  3 DESC,
+  1,
+  2;

@@ -1,7 +1,7 @@
 CREATE VIEW top_3_artistas AS
 SELECT
-  a.ARTISTA 'artista',
-  COUNT(u.NOME) 'seguidores'
+  a.ARTISTA As 'artista',
+  COUNT(u.NOME) AS 'seguidores'
 FROM
   SEGUIDORES AS s
   JOIN ARTISTAS AS a ON a.ID_ARTISTA = s.ID_ARTISTA
