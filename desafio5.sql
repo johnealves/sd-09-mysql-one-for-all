@@ -1,0 +1,14 @@
+CREATE VIEW top_2_hits_do_momento AS
+SELECT
+  c.CANCAO AS 'cancao',
+  COUNT(h.ID_CANCAO) AS 'reproducoes'
+FROM
+  HISTORICO_DE_REPRODUCAO AS h
+  JOIN CANCOES AS c ON c.ID_CANCAO = h.ID_CANCAO
+GROUP BY
+  1
+ORDER BY
+  2 DESC,
+  1 ASC
+LIMIT
+  2;
