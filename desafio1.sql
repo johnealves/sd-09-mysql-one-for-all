@@ -89,7 +89,7 @@ VALUES
   ('Envious', 1),
   ('Exuberant', 1),
   ('Hallowed Steam', 2),
-  ('Lance Day', 3),
+  ('Incandescent', 3),
   ('Temporary Culture', 4);
 
 INSERT INTO
