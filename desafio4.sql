@@ -1,6 +1,6 @@
 CREATE VIEW top_3_artistas AS
     SELECT 
-        stars.`name` AS artista,
+        CONCAT(stars.`name`, ' ', stars.last_name) AS artista,
         COUNT(follow_stars.users_id) AS seguidores
     FROM
         SpotifyClone.follow_stars AS follow_stars
@@ -10,3 +10,4 @@ CREATE VIEW top_3_artistas AS
     ORDER BY seguidores DESC, artista ASC
     LIMIT 3;
       
+      SELECT * from SpotifyClone.top_3_artistas;
