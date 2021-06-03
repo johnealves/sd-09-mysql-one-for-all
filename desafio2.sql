@@ -8,6 +8,3 @@ CREATE VIEW estatisticas_musicais AS
         SpotifyClone.stars AS stars,
         SpotifyClone.album AS album;
         
-	SHOW TABLES;
-    
-    SELECT * FROM SpotifyClone.estatisticas_musicais;
