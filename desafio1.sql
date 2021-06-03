@@ -20,11 +20,11 @@ CREATE TABLE users(
     CONSTRAINT fk_uspl FOREIGN KEY (plan_id) REFERENCES plans (plan_id)
 ) engine = InnoDB;
 
-CREATE TABLE artists(
+CREATE TABLE artists (
     artist_id INTEGER AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    CONSTRAINT pk_artists PRIMARY KEY(artist_id)
-) engine = InnoDB;
+    CONSTRAINT pk_artists PRIMARY KEY (artist_id)
+)  ENGINE=INNODB;
 
 CREATE TABLE albums(
     album_id INTEGER AUTO_INCREMENT,
@@ -66,7 +66,7 @@ CREATE TABLE users_songs_history(
     CONSTRAINT pk_users_songs_history PRIMARY KEY (user_id, song_id)
 ) engine = InnoDB;
 
-INSERT INTO plans (plan, price) VALUES ("gratuito","0"), ("familiar","7.99"), ("universit·rio","5.99");
+INSERT INTO plans (plan, price) VALUES ("gratuito","0"), ("familiar","7.99"), ("universit√°rio","5.99");
 
 INSERT INTO users (name, age, plan_id) VALUES ("Thati", "23", "1"), ("Cintia", "35", "2"), ("Bill", "20", "3"), ("Roger", "45", "1");
 
