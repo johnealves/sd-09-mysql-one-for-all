@@ -4,10 +4,10 @@ SELECT
     (SELECT 
             COUNT(a.artista_nome)
         FROM
-            spotifyclone.artists AS a) AS 'artistas',
+            SpotifyClone.artists AS a) AS 'artistas',
     (SELECT 
             COUNT(al.album_nome)
         FROM
-            spotifyclone.albums AS al) AS 'albuns'
+            SpotifyClone.albums AS al) AS 'albuns'
 FROM
-    spotifyclone.songs AS s;
+    SpotifyClone.songs AS s;
