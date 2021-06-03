@@ -17,15 +17,15 @@ CREATE TABLE usuarios (
 ) ENGINE=InnoDB;
 
 CREATE TABLE artistas(
-	artista_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	artista_id INT PRIMARY KEY AUTO_INCREMENT,
     artista VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE albuns(
-	album_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	album_id INT PRIMARY KEY AUTO_INCREMENT,
     album VARCHAR(100) NOT NULL,
     artista_id INT NOT NULL,
-    FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
+    FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE cancoes(
