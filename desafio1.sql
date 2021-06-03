@@ -32,7 +32,7 @@ CREATE TABLE cancoes(
 	cancao_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     cancao VARCHAR(100) NOT NULL,
     album_id  INT NOT NULL,
-    FOREIGN KEY (album_id) REFERENCES albuns(album_id)
+    FOREIGN KEY (album_id) REFERENCES albuns (album_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE seguindo_artista(
@@ -68,6 +68,13 @@ VALUES ('Walter Phoenix'),
        ('Lance Day'),
        ('Freedie Shannon');
 
+INSERT INTO albuns(album, artista_id)
+VALUES ('Envious', 1),
+	   ('Exuberant', 1),
+       ('Halloweed Steam', 2),
+       ('Incandescent', 3),
+       ('Temporary Culture', 4);
+
 INSERT INTO cancoes(cancao, album_id)
 VALUES ('Soul for Us', 1),
 	   ('Magic Circus', 3),
@@ -87,13 +94,6 @@ VALUES ('Soul for Us', 1),
        ('Celebration Of More', 4),
        ('Rock His Everything', 4),
        ('Without My Streets', 5);
-      
-INSERT INTO albuns(album, artista_id)
-VALUES ('Envious', 1),
-	   ('Exuberant', 1),
-       ('Halloweed Steam', 2),
-       ('Incandescent', 3),
-       ('Temporary Culture', 4);
 
 INSERT INTO historico_de_reproducao(usuario_id, cancao_id)
 VALUES (1, 1),
