@@ -8,4 +8,4 @@ CREATE VIEW faturamento_atual AS
     plan AS p
     INNER JOIN users AS u
       ON p.plan_id = u.plan_id;
-  
+   
