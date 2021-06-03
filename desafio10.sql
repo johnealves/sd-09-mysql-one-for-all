@@ -1,0 +1,14 @@
+DELIMITER $$
+CREATE FUNCTION quantidade_musicas_no_historico(id INT)
+RETURNS INT READS SQL DATA
+BEGIN
+    DECLARE user_id INT;
+SELECT
+    COUNT(*)
+FROM
+    SpotifyClone.HISTORICO_DE_REPRODUCAO
+WHERE
+    ID_USUARIO = id INTO user_id;
+    RETURN user_id;
+END $$
+DELIMITER ;
