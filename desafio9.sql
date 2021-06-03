@@ -10,6 +10,8 @@ BEGIN
 		
 	INNER JOIN
 	SpotifyClone.artistas AS art ON alb.id_artista = art.id_artista
+    
+    WHERE art.nome_artista = nome_artista
 
 	ORDER BY album;
 END $$
