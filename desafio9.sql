@@ -1,0 +1,14 @@
+DELIMITER $$
+CREATE PROCEDURE albuns_do_artista(IN name VARCHAR(20)) BEGIN
+SELECT
+  a.ARTISTA AS 'artista',
+  al.ALBUM AS 'album'
+FROM
+  ALBUNS AS al
+  JOIN ARTISTAS AS a ON al.ID_ARTISTA = a.ID_ARTISTA
+WHERE
+  a.ARTISTA = name
+ORDER BY
+  2;
+END $$
+DELIMITER;
