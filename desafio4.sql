@@ -10,4 +10,3 @@ CREATE VIEW top_3_artistas AS
     ORDER BY seguidores DESC, artista ASC
     LIMIT 3;
       
-      SELECT * from SpotifyClone.top_3_artistas;
