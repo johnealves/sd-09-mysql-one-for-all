@@ -68,13 +68,6 @@ VALUES ('Walter Phoenix'),
        ('Lance Day'),
        ('Freedie Shannon');
 
-INSERT INTO albuns(album, artista_id)
-VALUES ('Envious', 1),
-	   ('Exuberant', 1),
-       ('Halloweed Steam', 2),
-       ('Incandescent', 3),
-       ('Temporary Culture', 4);
-
 INSERT INTO cancoes(cancao, album_id)
 VALUES ('Soul for Us', 1),
 	   ('Magic Circus', 3),
@@ -94,13 +87,7 @@ VALUES ('Soul for Us', 1),
        ('Celebration Of More', 4),
        ('Rock His Everything', 4),
        ('Without My Streets', 5);
-       
-INSERT INTO artistas(artista)
-VALUES ('Walter Phoenix'),
-	   ('Peter Strong'),
-       ('Lance Day'),
-       ('Freedie Shannon');
-
+      
 INSERT INTO albuns(album, artista_id)
 VALUES ('Envious', 1),
 	   ('Exuberant', 1),
