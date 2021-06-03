@@ -8,7 +8,7 @@ CREATE TABLE planos(
     valor DOUBLE NOT NULL
 ) ENGINE=InnoDB;
 
-CREATE TABLE usuario (
+CREATE TABLE usuarios (
 	usuario_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     usuario VARCHAR(1000) NOT NULL, 
     idade INT NOT NULL,
@@ -16,38 +16,39 @@ CREATE TABLE usuario (
     FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 ) ENGINE=InnoDB;
 
-CREATE TABLE artista(
+CREATE TABLE artistas(
 	artista_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     artista VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB;
 
-CREATE TABLE album(
+CREATE TABLE albuns(
 	album_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     album VARCHAR(100) NOT NULL,
     artista_id INT NOT NULL,
-    FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
+    FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE cancoes(
-	cancoes_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    cancoes VARCHAR(100) NOT NULL,
+	cancao_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    cancao VARCHAR(100) NOT NULL,
     album_id  INT NOT NULL,
-    FOREIGN KEY (album_id) REFERENCES album(album_id)
+    FOREIGN KEY (album_id) REFERENCES albuns(album_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE seguindo_artista(
 	usuario_id INT NOT NULL,
     artista_id INT NOT NULL,
-    FOREIGN KEY (usuario_id) REFERENCES cancoes(cancoes_id),
-    FOREIGN KEY (artista_id) REFERENCES artista(artista_id)    
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+    FOREIGN KEY (artista_id) REFERENCES artistas(artista_id),
+    PRIMARY KEY (usuario_id, artista_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE historico_de_reproducao(
 	usuario_id INT NOT NULL,
-    cancoes_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY (usuario_id, cancoes_id),
-    FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
-    FOREIGN KEY (cancoes_id) REFERENCES cancoes(cancoes_id)    
+    cancao_id INT NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+    FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id),
+    PRIMARY KEY (usuario_id, cancao_id)
 ) ENGINE=InnoDB;
 
 INSERT INTO planos(plano, valor)
@@ -55,26 +56,26 @@ VALUES ('gratuito', 0),
 	   ('familiar', 7.99),
        ('universitário', 5.99);
 
-INSERT INTO usuario(usuario, idade, plano_id)
+INSERT INTO usuarios(usuario, idade, plano_id)
 VALUES ('Thati', 23, 1),
 	   ('Cintia', 35, 2),
        ('Bill', 20, 3),
        ('Roger', 45, 1);
        
-INSERT INTO artista(artista)
+INSERT INTO artistas(artista)
 VALUES ('Walter Phoenix'),
 	   ('Peter Strong'),
        ('Lance Day'),
        ('Freedie Shannon');
 
-INSERT INTO album(album, artista_id)
+INSERT INTO albuns(album, artista_id)
 VALUES ('Envious', 1),
 	   ('Exuberant', 1),
        ('Halloweed Steam', 2),
        ('Incandescent', 3),
        ('Temporary Culture', 4);
 
-INSERT INTO cancoes(cancoes, album_id)
+INSERT INTO cancoes(cancao, album_id)
 VALUES ('Soul for Us', 1),
 	   ('Magic Circus', 3),
        ('Diamond Power', 4),
@@ -94,20 +95,20 @@ VALUES ('Soul for Us', 1),
        ('Rock His Everything', 4),
        ('Without My Streets', 5);
        
-INSERT INTO artista(artista)
+INSERT INTO artistas(artista)
 VALUES ('Walter Phoenix'),
 	   ('Peter Strong'),
        ('Lance Day'),
        ('Freedie Shannon');
 
-INSERT INTO album(album, artista_id)
+INSERT INTO albuns(album, artista_id)
 VALUES ('Envious', 1),
 	   ('Exuberant', 1),
        ('Halloweed Steam', 2),
        ('Incandescent', 3),
        ('Temporary Culture', 4);
 
-INSERT INTO historico_de_reproducao(usuario_id, cancoes_id)
+INSERT INTO historico_de_reproducao(usuario_id, cancao_id)
 VALUES (1, 1),
 	   (1, 2),
        (1, 3),
