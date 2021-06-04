@@ -107,7 +107,7 @@ VALUES
 ("Honey, Let's Be Silly", 4),
 ('Thang Of Thunder', 5),
 ('Words Of Her Life', 5),
-('Without The Streets', 5);
+('Without My Streets', 5);
 
 INSERT INTO SpotifyClone.reproduction_history (user_id, song_id)
 VALUES
