@@ -62,7 +62,7 @@ INSERT INTO artistas(nome) VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
-  ('Freedia Shannon');
+  ('Freedie Shannon');
 
 INSERT INTO usuarios(nome, idade, plano_id) VALUES
   ('Thati', 23, 1),
