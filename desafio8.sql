@@ -1,4 +1,4 @@
-USE SpotifyClone;
+
 DELIMITER $$
 CREATE TRIGGER trigger_usuario_delete
 BEFORE DELETE ON users
@@ -10,3 +10,6 @@ DELETE FROM `history`
 WHERE users_id = OLD.users_id;
 END $$
 DELIMITER ;
+
+DELETE FROM SpotifyClone.users
+WHERE user_name = "Thati";
