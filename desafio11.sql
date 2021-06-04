@@ -1,6 +1,6 @@
 CREATE VIEW SpotifyClone.cancoes_premium AS
     SELECT 
-        c.cancao, COUNT(c.cancao) AS `reproducoes`
+        c.cancao as `nome`, COUNT(c.cancao) AS `reproducoes`
     FROM
         SpotifyClone.usuarios AS u,
         SpotifyClone.historico AS h,
@@ -10,5 +10,5 @@ CREATE VIEW SpotifyClone.cancoes_premium AS
             AND (h.usuario_id = u.usuario_id)
             AND (c.cancao_id = h.cancao_id)
     GROUP BY 1
-    ORDER BY c.cancao;
+    ORDER BY `nome`;
     
