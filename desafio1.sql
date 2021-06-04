@@ -17,7 +17,7 @@ CREATE TABLE planos (
 
 CREATE TABLE albuns (
     album_id INT PRIMARY KEY AUTO_INCREMENT,
-    album VARCHAR(50) NOT NULL,
+    album VARCHAR(60) NOT NULL,
     artista_id INT NOT NULL,
     FOREIGN KEY (artista_id)
         REFERENCES artistas (artista_id)
@@ -25,7 +25,7 @@ CREATE TABLE albuns (
 
 CREATE TABLE cancoes (
     cancao_id INT PRIMARY KEY AUTO_INCREMENT,
-    cancao VARCHAR(100) NOT NULL,
+    cancao VARCHAR(80) NOT NULL,
     album_id INT NOT NULL,
     FOREIGN KEY (album_id)
         REFERENCES albuns (album_id)
@@ -33,7 +33,7 @@ CREATE TABLE cancoes (
 
 CREATE TABLE usuarios (
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
+    nome VARCHAR(60) NOT NULL,
     idade INT NOT NULL,
     plano_id INT NOT NULL,
     FOREIGN KEY (plano_id)
