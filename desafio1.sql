@@ -45,9 +45,9 @@ CREATE TABLE IF NOT EXISTS usuario_seguindo_artistas (
 );
 
 CREATE TABLE IF NOT EXISTS historico_cancoes (
-  historico_cancoes_id INT PRIMARY KEY AUTO_INCREMENT,
   usuario_id INT NOT NULL,
   cancao_id INT NOT NULL,
+  CONSTRAINT PRIMARY KEY(usuario_id, cancao_id),
   FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
   FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id)
 );
