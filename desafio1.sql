@@ -78,7 +78,7 @@ VALUES ('Walter Phoenix'),
 INSERT INTO albuns(album, artista_id)
 VALUES ('Envious', 1),
 	   ('Exuberant', 1),
-       ('Halloweed Steam', 2),
+       ('Hallowed Steam', 2),
        ('Incandescent', 3),
        ('Temporary Culture', 4);
 
