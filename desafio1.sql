@@ -76,7 +76,7 @@ VALUES
 INSERT INTO SpotifyClone.artists (artist_name)
 VALUES
 ('Walter Phoenix'),
-('Freddie Shannon'),
+('Freedie Shannon'),
 ('Lance Day'),
 ('Peter Strong');
 
