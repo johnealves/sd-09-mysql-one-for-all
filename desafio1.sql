@@ -12,7 +12,7 @@ CREATE TABLE subscriptions(
 );
 
 CREATE TABLE users(
-	user_id INT NOT NULL AUTO_INCREMENT,
+	  user_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     age INT NOT NULL,
     subscription_id INT NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE albums(
 );
 
 CREATE TABLE songs(
-	song_id INT NOT NULL AUTO_INCREMENT,
+	  song_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     album_id INT NOT NULL,
     CONSTRAINT PRIMARY KEY (song_id),
@@ -43,16 +43,16 @@ CREATE TABLE songs(
 );
 
 CREATE TABLE playback_history(
-	playback_id INT NOT NULL AUTO_INCREMENT,
+	  playback_id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
     song_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY (playback_id),
+    CONSTRAINT PRIMARY KEY (playback_id, user_id, song_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     FOREIGN KEY (song_id) REFERENCES songs (song_id)
 );
 
 CREATE TABLE followers(
-	artist_id INT NOT NULL,
+	  artist_id INT NOT NULL,
     user_id INT NOT NULL,
     CONSTRAINT PRIMARY KEY (artist_id, user_id),
     FOREIGN KEY (artist_id) REFERENCES artists (artist_id),
@@ -61,7 +61,7 @@ CREATE TABLE followers(
 
 INSERT INTO subscriptions(subscription_id, subscription, price)
 VALUES
-	(1, 'gratuito', 0),
+	  (1, 'gratuito', 0),
     (2, 'universitário', 0),
     (3, 'familiar', 0);
 
@@ -81,12 +81,12 @@ VALUES
     
 INSERT INTO albums(name, artist_id)
 VALUES
-	('Envious',1),
+	  ('Envious',1),
     ('Exuberant',1),
     ('Hallowed Steam',2),
     ('Incandescent',3),
     ('Temporary Culture',4);
-
+    
 INSERT INTO songs(name, album_id)
 VALUES
 	('Soul For Us',1),
@@ -100,7 +100,7 @@ VALUES
     ('Honey, So Do I',3),
     ("Sweetie, Let's Go Wild",3),
     ('She Knows',3),
-    
+
     ('Fantasy For Me',4),
     ('Celebration Of More',4),
     ('Rock His Everything',4),
@@ -111,3 +111,23 @@ VALUES
     ("Thang Of Thunder",5),
     ("Words Of Her Life",5),
     ("Without My Streets",5);
+    
+INSERT INTO playback_history(user_id, song_id)
+VALUES
+	(1, 1),
+    (1, 6),
+    (1, 14),
+    (1, 16),
+    
+    (2, 13),
+    (2, 17),
+    (2, 2),
+    (2, 15),
+    
+    (3, 4),
+    (3, 16),
+    (3, 6),
+    
+    (4, 3),
+    (4, 18),
+    (4, 11);
