@@ -1,4 +1,4 @@
-USE SpotifyClone;
+
 DELIMITER $$
 
 CREATE PROCEDURE albuns_do_artista(
@@ -11,7 +11,7 @@ FROM SpotifyClone.stars AS art
 INNER JOIN SpotifyClone.album AS alb
 ON art.stars_id = alb.stars_id
 WHERE art.`name` = `name`
-ORDER BY `album`;
+ORDER BY `album` ASC;
 END $$
 
 DELIMITER ;
