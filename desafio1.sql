@@ -29,7 +29,7 @@ CREATE TABLE seguindoArtistas(
     artista_id int NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
     FOREIGN KEY (artista_id) REFERENCES artistas (artista_id),
-    CONSTRAINT PRIMARY KEY (usuario_id, artista_id)
+    PRIMARY KEY (usuario_id, artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE albuns(
@@ -51,7 +51,7 @@ CREATE TABLE usuarioMusicas(
     musica_id int NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
     FOREIGN KEY (musica_id) REFERENCES musicas (musica_id),
-    CONSTRAINT PRIMARY KEY (usuario_id, musica_id)
+    PRIMARY KEY (usuario_id, musica_id)
 ) engine = InnoDB;
 
 INSERT INTO planos (plano, valor_plano)
