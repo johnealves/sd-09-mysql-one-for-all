@@ -8,7 +8,7 @@ USE `SpotifyClone`;
 CREATE TABLE `plans`(
 	plan_id INT PRIMARY KEY AUTO_INCREMENT,
     `description` VARCHAR(100) NOT NULL,
-    `value` DOUBLE NOT NULL
+    `value` DECIMAL(5,2) NOT NULL
 )engine = InnoDB;
 
 -- CRIA TABELA USUÁRIO
@@ -64,7 +64,7 @@ CREATE TABLE `following` (
     
 -- INSERE DADOS NA TABELA 'planos'
 INSERT INTO `plans` (`description`, `value`) VALUES
-	("gratuito", 0),
+	("gratuito", 0.00),
     ("familiar", 7.99),
     ("universitário", 5.99);
 
