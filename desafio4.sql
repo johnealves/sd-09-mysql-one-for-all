@@ -1,3 +1,4 @@
+CREATE VIEW top_3_artistas AS
 SELECT NOME AS 'artistas',
 COUNT(*) AS 'seguidores' FROM SpotifyClone.SEGUINDO_ARTISTA AS S
 INNER JOIN SpotifyClone.ARTISTAS AS A ON A.ARTISTA_ID = S.ARTISTA_ID
