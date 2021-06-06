@@ -45,7 +45,7 @@ CREATE TABLE history(
   CONSTRAINT PRIMARY KEY(user_id, song_id)
 ) engine = InnoDB;
 
-CREATE TABLE fallows_artists(
+CREATE TABLE follows_artists(
   user_id TINYINT NOT NULL,
   artist_id TINYINT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES user(user_id),
@@ -119,7 +119,7 @@ INSERT INTO history(user_id, song_id)
     (4, 18),
     (4, 11);
 
-INSERT INTO fallows_artists(user_id, artist_id)
+INSERT INTO follows_artists(user_id, artist_id)
   VALUES
     (1, 1),
     (1, 4),
