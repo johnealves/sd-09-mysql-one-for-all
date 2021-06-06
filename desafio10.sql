@@ -1,12 +1,13 @@
 USE SpotifyClone;
 DELIMITER $$
 
-CREATE TRIGGER trigger_usuario_delete
-BEFORE DELETE ON SpotifyClone.user
-FOR EACH ROW
+CREATE FUNCTION quantidade_musicas_no_historico(u_ID int)
+RETURNS INT READS SQL DATA
 BEGIN
-DELETE FROM SpotifyClone.follows_artists WHERE user_id = OLD.user_id;
-DELETE FROM SpotifyClone.history WHERE user_id = OLD.user_id;
+DECLARE quantity INT;
+SELECT
+COUNT(*) FROM SpotifyClone.history WHERE user_id = u_ID INTO quantity;
+RETURN quantity;
 END $$
 
 DELIMITER ;
