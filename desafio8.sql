@@ -8,13 +8,14 @@ CREATE TRIGGER trigger_usuario_delete
   FOR EACH ROW
 BEGIN
   DELETE FROM 
-    SpotifyClone.USUARIOS_REPRODUCOES UR
+    SpotifyClone.USUARIOS_REPRODUCOES
   WHERE 
-    UR.usuario_id = OLD.usuario_id;
+    usuario_id = OLD.usuario_id;
+
   DELETE FROM
-    SpotifyClone.USUARIOS_SEGUIDAS US
+    SpotifyClone.USUARIOS_SEGUIDAS
   WHERE 
-    US.usuario_id = OLD.usuario_id;
+    usuario_id = OLD.usuario_id;
 END $$
 
 DELIMITER ;
