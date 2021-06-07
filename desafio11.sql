@@ -18,4 +18,4 @@ CREATE VIEW cancoes_premium AS
     GROUP BY s.song_title
     ORDER BY s.song_title;
     
-    -- Os INNER JOINS feitos com 'users' e 'plans' foram feitos para poder usar o WHERE
+    -- Os INNER JOINS feitos com 'users' e 'plans' foram feitos para poder usar o WHERE.
