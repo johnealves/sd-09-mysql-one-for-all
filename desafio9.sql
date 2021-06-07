@@ -6,7 +6,7 @@ BEGIN
    SELECT art.artist_name AS 'artista', al.album_name AS 'album'
     FROM SpotifyClone.artists_table AS art
     JOIN SpotifyClone.albums_table AS al ON art.artist_id = al.artist_id
-    WHERE artist_name = artist_name;
+    WHERE art.artist_name = artist_name;
 END $$
 
 DELIMITER ;
