@@ -1,3 +1,5 @@
+CREATE VIEW top_2_hits_do_momento AS
+
 SELECT 
 songs.name AS 'cancao',
 COUNT(*) AS 'reproducoes'
