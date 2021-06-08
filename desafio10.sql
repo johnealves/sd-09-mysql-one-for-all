@@ -5,8 +5,8 @@ RETURNS INT READS SQL DATA
 BEGIN
   DECLARE total INT;
   SELECT COUNT(*) AS `quantidade_musicas_no_historico`
-  FROM followers AS f
-	WHERE f.user_id = user_id INTO total;
+  FROM histories AS h
+	WHERE h.user_id = user_id INTO total;
   RETURN total;
 END $$
 
