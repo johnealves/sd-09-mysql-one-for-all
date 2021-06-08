@@ -1,5 +1,5 @@
 CREATE VIEW `estatisticas_musicais` AS
-SELECT * FROm song;
+SELECT * FROM song;
 SELECT 
     COUNT(*) AS `cancoes`,
     (SELECT 
