@@ -6,7 +6,7 @@ BEGIN
   DECLARE total INT;
   SELECT COUNT(*) AS `quantidade_musicas_no_historico`
   FROM followers AS f
-	WHERE f.user_id = 3 INTO total;
+	WHERE f.user_id = user_id INTO total;
   RETURN total;
 END $$
 
