@@ -61,9 +61,9 @@ FOREIGN KEY (user_id) REFERENCES users (user_id)
 
 INSERT INTO subscriptions(subscription_id, subscription, price)
 VALUES
-(1, 'gratuito', 0),
-(2, 'universitário', 0),
-(3, 'familiar', 0);
+(1, 'gratuito', 0.00),
+(2, 'universitário', 7.99),
+(3, 'familiar', 5.99);
 
 INSERT INTO users(name, age, subscription_id)
 VALUES
