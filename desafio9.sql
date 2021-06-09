@@ -1,4 +1,3 @@
-USE SpotifyClone
 DELIMITER $$
 
 CREATE PROCEDURE albuns_do_artista(in nome varchar(20))
