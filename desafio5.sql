@@ -1,5 +1,3 @@
-USE SpotifyClone;
-
 CREATE VIEW top_2_hits_do_momento AS 
 	SELECT tCancoes.cancao, COUNT(tReproducoes.id_cancao) AS reproducoes
     
