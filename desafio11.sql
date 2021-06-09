@@ -1,4 +1,4 @@
-CREATE cancoes_premium AS
+CREATE VIEW cancoes_premium AS
 SELECT M.NOME AS 'nome', COUNT(*) AS 'reproducoes' FROM SpotifyClone.USUARIOS AS U
 INNER JOIN SpotifyClone.HISTORICOS AS H ON U.USUARIO_ID = H.USUARIO_ID
 INNER JOIN SpotifyClone.PLANOS AS P ON P.PLANO_ID = U.PLANO_ID
