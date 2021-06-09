@@ -16,3 +16,5 @@ RETURN numReproducoes;
 END $$
 
 DELIMITER ;
+
+--Honestidade Acadêmica; Repositório consultado: https://github.com/tryber/sd-05-mysql-one-for-all/pull/5 
