@@ -5,7 +5,7 @@ BEGIN
 SELECT 
     ar.artist_name AS 'artista', al.album_title AS 'album'
 FROM
-    albuns AS al
+    albums AS al
         INNER JOIN
     artists AS ar ON al.artist_id = ar.artist_id
 WHERE
