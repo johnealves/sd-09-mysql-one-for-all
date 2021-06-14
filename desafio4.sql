@@ -6,4 +6,5 @@ INNER JOIN seguindo AS t2
 ON 
 t1.artista_id = t2.artista_id
 GROUP BY artista
-ORDER BY seguidores DESC;
+ORDER BY seguidores DESC
+LIMIT 3;
