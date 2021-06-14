@@ -4,80 +4,80 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE plan(
-    plan_id INT AUTO_INCREMENT,
-    plan_name VARCHAR(50) NOT NULL,
-    plan_price DECIMAL NOT NULL,
-    PRIMARY KEY(plan_id)
+CREATE TABLE plano(
+    plano_id INT AUTO_INCREMENT,
+    plano_nome VARCHAR(50) NOT NULL,
+    plano_preco DECIMAL NOT NULL,
+    PRIMARY KEY(plano_id)
 ) engine = InnoDB;
 
-CREATE TABLE `user`(
-    user_id INT AUTO_INCREMENT,
-    user_name VARCHAR(50) NOT NULL,
-    age INT NOT NULL,
-    plan_id INT NOT NULL,
-    PRIMARY KEY(user_id),
-    FOREIGN KEY(plan_id) REFERENCES plan(plan_id)
+CREATE TABLE usuario(
+    usuario_id INT AUTO_INCREMENT,
+    usuario_nome VARCHAR(50) NOT NULL,
+    usuario_idade INT NOT NULL,
+    plano_id INT NOT NULL,
+    PRIMARY KEY(usuario_id),
+    FOREIGN KEY(plano_id) REFERENCES plano(plano_id)
 ) engine = InnoDB;
 
-CREATE TABLE artist(
-    artist_id INT AUTO_INCREMENT,
-    artist_name VARCHAR(50) NOT NULL,
-    PRIMARY KEY(artist_id)
+CREATE TABLE artista(
+    artista_id INT AUTO_INCREMENT,
+    artista_nome VARCHAR(50) NOT NULL,
+    PRIMARY KEY(artista_id)
 ) engine = InnoDB;
 
 CREATE TABLE album(
     album_id INT AUTO_INCREMENT,
-    album_name VARCHAR(50) NOT NULL,
-    artist_id INT NOT NULL,
+    album_nome VARCHAR(50) NOT NULL,
+    artista_id INT NOT NULL,
     PRIMARY KEY(album_id),
-    FOREIGN KEY(artist_id) REFERENCES artist(artist_id)
+    FOREIGN KEY(artista_id) REFERENCES artista(artista_id)
 ) engine = InnoDB;
 
-CREATE TABLE songs(
-    song_id INT AUTO_INCREMENT,
-    song_title VARCHAR(50) NOT NULL,
+CREATE TABLE musicas(
+    musica_id INT AUTO_INCREMENT,
+    musica_titulo VARCHAR(50) NOT NULL,
     album_id INT,
-    PRIMARY KEY (song_id),
+    PRIMARY KEY (musica_id),
     FOREIGN KEY (album_id) REFERENCES album(album_id)
 ) engine = InnoDB;
-CREATE TABLE `history`(
-    user_id INT NOT NULL,
-    song_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY (user_id, song_id),
-    FOREIGN KEY (user_id) REFERENCES user(user_id),
-    FOREIGN KEY (song_id) REFERENCES songs(song_id)
+CREATE TABLE `historico`(
+    usuario_id INT NOT NULL,
+    musica_id INT NOT NULL,
+    CONSTRAINT PRIMARY KEY (usuario_id, musica_id),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
+    FOREIGN KEY (musica_id) REFERENCES musicas(musica_id)
 ) engine = InnoDB;
 
-CREATE TABLE follow(
-    user_id INT NOT NULL,
-    artist_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY (user_id, artist_id),
-    FOREIGN KEY (user_id) REFERENCES user(user_id),
-    FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
+CREATE TABLE seguindo(
+    usuario_id INT NOT NULL,
+    artista_id INT NOT NULL,
+    CONSTRAINT PRIMARY KEY (usuario_id, artista_id),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id),
+    FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
 ) engine = InnoDB;
 
-INSERT INTO plan(plan_name, plan_price)
+INSERT INTO plano(plano_nome, plano_preco)
 VALUES 
   ("gratuito", 0.00),
   ("familiar", 7.99),
   ("universitário", 5.99);
   
-INSERT INTO user(user_name, age, plan_id)
+INSERT INTO usuario(usuario_nome, usuario_idade, plano_id)
 VALUES
   ("Thati", 23, 1),
   ("Cintia", 35, 2),
   ("Bill", 20, 3),
   ("Roger", 45, 1);
 
-INSERT INTO artist(artist_name)
+INSERT INTO artista(artista_nome)
 VALUES
   ("Walter Phoenix"),
   ("Peter Strong"),
   ("Lance Day"),
   ("Freedie Shannon");
 
-INSERT INTO album(album_name, artist_id)
+INSERT INTO album(album_nome, artista_id)
 VALUES
   ("Envious", 1),
   ("Exuberant", 2),
@@ -85,7 +85,7 @@ VALUES
   ("Incandescent", 4),
   ("Temporary Culture", 3);
   
-INSERT INTO songs(song_title, album_id)
+INSERT INTO musicas(musica_titulo, album_id)
 VALUES
   ("Soul For Us", 1),
   ("Reflections Of Magic", 1),
@@ -106,7 +106,7 @@ VALUES
   ("Words Of Her Life", 5),
   ("Without My Streets", 5);
 
-INSERT INTO follow(user_id, artist_id) VALUES   (1,	1),
+INSERT INTO seguindo(usuario_id, artista_id) VALUES   (1,	1),
   (1,	3),
   (1,	4),
   (2,	1),
@@ -115,7 +115,7 @@ INSERT INTO follow(user_id, artist_id) VALUES   (1,	1),
   (3,	2),
   (4, 4);
 
-INSERT INTO history(user_id, song_id)
+INSERT INTO historico(usuario_id, musica_id)
 VALUES
 (1, 1),
 (1, 6),
