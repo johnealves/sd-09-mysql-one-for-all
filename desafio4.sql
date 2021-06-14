@@ -3,7 +3,7 @@ CREATE VIEW top_3_artistas AS
     
     FROM SpotifyClone.seguindo_artista AS tSeguindo
     
-    INNER JOIN SpotifyClone.artista AS tArtista
+    INNER JOIN SpotifyClone.artistas AS tArtista
     ON tSeguindo.id_artista = tArtista.id_artista
     
     GROUP BY artista

@@ -16,7 +16,7 @@ CREATE TABLE usuarios(
     FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 ) ENGINE=InnoDB;
 
-CREATE TABLE artista(
+CREATE TABLE artistas(
 	id_artista INT PRIMARY KEY AUTO_INCREMENT,
     artista VARCHAR(100)
 ) ENGINE=InnoDB;
@@ -25,7 +25,7 @@ CREATE TABLE albuns(
 	album_id INT PRIMARY KEY AUTO_INCREMENT,
     album VARCHAR(100), 
     id_artista INT NOT NULL,
-    FOREIGN KEY (id_artista) REFERENCES artista(id_artista) 
+    FOREIGN KEY (id_artista) REFERENCES artistas(id_artista) 
 ) ENGINE=InnoDB;
 
 CREATE TABLE cancoes(
@@ -48,7 +48,7 @@ CREATE TABLE seguindo_artista(
     id_artista INT NOT NULL,
     PRIMARY KEY(`usuario_id`, `id_artista`),
     FOREIGN KEY (`usuario_id`) REFERENCES usuarios(`usuario_id`),
-    FOREIGN KEY (`id_artista`) REFERENCES artista(`id_artista`)
+    FOREIGN KEY (`id_artista`) REFERENCES artistas(`id_artista`)
 ) ENGINE=InnoDB;
 
 INSERT INTO planos (plano, valor) VALUES 
@@ -62,7 +62,7 @@ INSERT INTO usuarios (usuario, idade, plano_id) VALUES
 ('Bill','20','3'),
 ('Roger','45','1');
 
-INSERT INTO artista (artista) VALUES
+INSERT INTO artistas (artista) VALUES
 ('Walter Phoenix'),
 ('Peter Strong'),
 ('Lance Day'),
