@@ -4,6 +4,6 @@ ROUND(MAX(t1.valor_plano), 2) AS faturamento_maximo,
 ROUND(AVG(t1.valor_plano), 2) AS faturamento_medio,
 ROUND(SUM(t1.valor_plano), 2) AS faturamento_total
 FROM SpotifyClone.planos AS t1
-INNER JOIN usuarios AS t2
+INNER JOIN SpotifyClone.usuarios AS t2
 ON 
 t1.plano_id = t2.plano_id;
