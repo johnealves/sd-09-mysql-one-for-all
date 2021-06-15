@@ -2,9 +2,9 @@ CREATE VIEW top_3_artistas AS
 SELECT art.artista_nome AS 'artista',
 COUNT(seg.usuario_id)  AS 'seguidores'
 FROM
-spotifyclone.artista AS art
+SpotifyClone.artista AS art
 INNER JOIN
-spotifyclone.seguindo AS seg ON art.artista_id = seg.artista_id
+SpotifyClone.seguindo AS seg ON art.artista_id = seg.artista_id
 GROUP BY 1
 ORDER BY 2 DESC, 1 ASC
 LIMIT 3;

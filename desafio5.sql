@@ -2,9 +2,9 @@ CREATE VIEW top_2_hits_do_momento AS
 SELECT m.musica_titulo AS 'cancao',
 COUNT(h.usuario_id) AS 'reproducoes'
 FROM 
-spotifyclone.historico AS h
+SpotifyClone.historico AS h
 INNER JOIN
-spotifyclone.musicas AS m ON h.musica_id = m.musica_id
+SpotifyClone.musicas AS m ON h.musica_id = m.musica_id
 GROUP BY 1
 ORDER BY 2 DESC, 1
 LIMIT 2;
