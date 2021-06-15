@@ -9,10 +9,7 @@ A terceira coluna deve exibir a quantidade de álbuns e deverá ter o alias "alb
 USE SpotifyClone;
 -- DROP VIEW estatisticas_musicais;
 CREATE VIEW estatisticas_musicais AS
-  SELECT
-    COUNT(*) AS cancoes,
-    (SELECT COUNT(*) FROM artist) AS artistas,
-    (SELECT COUNT(*) FROM album) AS albuns
+  SELECT COUNT(*) AS cancoes, (SELECT COUNT(*) FROM artist) AS artistas, (SELECT COUNT(*) FROM album) AS albuns
   FROM song;
 
 SELECT * FROM estatisticas_musicais;
