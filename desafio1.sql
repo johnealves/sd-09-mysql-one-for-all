@@ -10,7 +10,7 @@ plan_value DECIMAL(10, 2) NOT NULL
 
 CREATE TABLE users (
 users_id INT PRIMARY KEY AUTO_INCREMENT,
-user_name VARCHAR(25),
+`user_name` VARCHAR(25),
 age INT,
 plan_id INT NOT NULL,
 FOREIGN KEY (plan_id) REFERENCES plan(plan_id)
