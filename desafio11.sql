@@ -8,9 +8,10 @@ Seus resultados devem estar agrupados pelo nome da canção e ordenados em ordem
 
 CREATE VIEW cancoes_premium AS
   SELECT s.song nome,
-    (SELECT COUNT(*) FROM track_record WHERE song_id = s.song_id) reproducoes
+    COUNT(*) reproducoes
   FROM track_record tr
     INNER JOIN song s ON tr.song_id = s.song_id
     INNER JOIN user u ON tr.user_id = u.user_id
   WHERE u.plan_id IN (2, 3)
+  GROUP BY nome
   ORDER BY nome;
