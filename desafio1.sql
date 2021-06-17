@@ -45,6 +45,14 @@ CREATE TABLE playing_history(
     FOREIGN KEY (user_id) REFERENCES user(user_id)
 ) engine = InnoDB;
 
+CREATE TABLE `following`(
+    following_index INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    musician_id INT,
+    FOREIGN KEY (user_id) REFEENCES user(user_id),
+    FOREIGN KEY (musician_id) REFERENCES musician(musician_id)
+) engine = InnoDB;
+
 INSERT INTO plan (plan_name, plan_price)
 VALUES
     ('gratuito', 0),
@@ -94,19 +102,30 @@ VALUES
     ('Words Of Her Life', 5),
     ('Without My Streets', 5);
 
-INSERT INTO playing_history(user_id, song_id)
+INSERT INTO playing_history (song_id, user_id)
 VALUES
     (1, 1),
-    (1, 6),
-    (1, 14),
-    (1, 16),
-    (2, 13),
-    (2, 17),
+    (6, 1),
+    (14, 1),
+    (16, 1),
+    (13, 2),
+    (17, 2),
     (2, 2),
-    (2, 15),
-    (3, 2),
-    (3, 16),
-    (3, 6),
-    (4, 3),
-    (4, 18),
-    (4, 11);
+    (15, 2),
+    (2,3),
+    (16, 3),
+    (6, 3),
+    (3, 4),
+    (18, 4),
+    (11, 4);
+
+INSERT INTO `following` (user_id, musician_id)
+VALUES
+    (1, 1),
+    (1, 2),
+    (1, 3),
+    (2, 1),
+    (2, 3),
+    (3, 4),
+    (3, 1),
+    (4, 2);
