@@ -2,6 +2,12 @@ DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
+CREATE TABLE planos(
+plano_id INT PRIMARY KEY AUTO_INCREMENT,
+plano VARCHAR(30) NOT NULL,
+preco DECIMAL(5,2) NOT NULL
+) Engine = InnoDB;
+
 CREATE TABLE usuarios(
 usuario_id INT PRIMARY KEY AUTO_INCREMENT,
 usuario_nome VARCHAR(50) NOT NULL,
@@ -14,12 +20,6 @@ FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 -- ALTER TABLE usuario DROP valor_plano;
 -- DROP TABLE SpotifyClone.seguindo;
 -- DESCRIBE SpotifyClone.usuarios;
-
-CREATE TABLE planos(
-plano_id INT PRIMARY KEY AUTO_INCREMENT,
-plano VARCHAR(30) NOT NULL,
-preco DECIMAL(5,2) NOT NULL
-) Engine = InnoDB;
 
 CREATE TABLE artistas(
 artista_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -63,6 +63,12 @@ INSERT INTO planos(plano, preco) VALUES
 ('universitário',5.99),
 ('familiar', 7.99);
 
+INSERT INTO usuarios(usuario_nome, idade, plano_id) VALUES
+('Thati', 23, 1),
+('Cintia', 35, 3),
+('Bill', 20, 2),
+('Roger', 45, 1);
+
 INSERT INTO artistas(artista_nome) VALUES
 ('Walter Phoenix'),
 ('Peter Strong'),
@@ -96,7 +102,7 @@ INSERT INTO cancoes(cancao_nome, album_id) VALUES
 ('Words Of Her Life', 5),
 ('Without My Streets', 5);
 
-INSERT INTO user_history(user_id, song_id) VALUES
+INSERT INTO historico(usuario_id, cancao_id) VALUES
 (1, 1), (1, 6), (1, 14), (1, 16),
 (2, 13), (2, 17), (2, 2), (2, 15),
 (3, 4), (3, 16), (3, 6),
@@ -107,9 +113,3 @@ INSERT INTO seguindo(usuario_id, artista_id) VALUES
 (2, 1), (2, 3),
 (3, 2), (3, 1),
 (4, 4);
-
-INSERT INTO usuarios(usuario_nome, idade, plano_id) VALUES
-('Thati', 23, 1),
-('Cintia', 35, 3),
-('Bill', 20, 2),
-('Roger', 45, 1);
