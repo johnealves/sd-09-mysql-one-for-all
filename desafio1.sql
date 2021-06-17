@@ -10,8 +10,8 @@ preco DECIMAL(5,2) NOT NULL
 
 CREATE TABLE usuarios(
 usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-usuario_nome VARCHAR(50) NOT NULL,
-idade INTEGER,
+usuario_nome VARCHAR(50),
+idade INT,
 plano_id INT,
 FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 ) Engine = InnoDB;
@@ -23,13 +23,14 @@ FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 
 CREATE TABLE artistas(
 artista_id INT PRIMARY KEY AUTO_INCREMENT,
-artista_nome VARCHAR(50) NOT NULL
+artista_nome VARCHAR(50)
 ) Engine = InnoDB;
 
 CREATE TABLE albuns(
 album_id INT PRIMARY KEY AUTO_INCREMENT,
 album_nome VARCHAR(50),
 artista_id INT,
+CONSTRAINT UNIQUE (album_nome, artista_id),
 FOREIGN KEY (artista_id) REFERENCES artistas(artista_id)
 ) Engine = InnoDB;
 
@@ -43,6 +44,7 @@ FOREIGN KEY (album_id) REFERENCES albuns(album_id)
 CREATE TABLE historico(
 usuario_id INT,
 cancao_id INT,
+CONSTRAINT PRIMARY KEY (usuario_id, cancao_id),
 FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
 FOREIGN KEY (cancao_id) REFERENCES cancoes(cancao_id)
 ) Engine = InnoDB;
