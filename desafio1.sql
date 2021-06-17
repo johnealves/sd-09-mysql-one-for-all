@@ -49,7 +49,7 @@ CREATE TABLE `following`(
     following_index INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     musician_id INT,
-    FOREIGN KEY (user_id) REFEENCES user(user_id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
     FOREIGN KEY (musician_id) REFERENCES musician(musician_id)
 ) engine = InnoDB;
 
