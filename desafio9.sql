@@ -1,5 +1,4 @@
 DELIMITER $$
-USE SpotifyClone
 CREATE PROCEDURE albuns_do_artista(IN nome VARCHAR(20))
 BEGIN
 SELECT a.artista_nome AS artista,
