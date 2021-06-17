@@ -3,12 +3,11 @@ CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE usuarios(
-usuario_id INT AUTO_INCREMENT,
+usuario_id INT PRIMARY KEY AUTO_INCREMENT,
 usuario_nome VARCHAR(50) NOT NULL,
 idade INTEGER,
 plano_id INT,
-FOREIGN KEY (plano_id) REFERENCES planos(plano_id),
-CONSTRAINT PRIMARY KEY (usuario_id)
+FOREIGN KEY (plano_id) REFERENCES planos(plano_id)
 ) Engine = InnoDB;
 
 -- SELECT * FROM SpotifyClone.usuario;
