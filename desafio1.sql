@@ -69,7 +69,7 @@ VALUES
 INSERT INTO musician (musician_name)
 VALUES
     ('Walter Phoenix'),
-    ('Freddie Shannon'),
+    ('Freedie Shannon'),
     ('Lance Day'),
     ('Peter Strong');
 
