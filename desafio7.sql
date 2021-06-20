@@ -1,15 +1,19 @@
 CREATE VIEW perfil_artistas AS
 SELECT
-AR.artista artista,
-AL.album album,
-COUNT(US.usuario_id) seguidores
-FROM
-SpotifyClone.artistas AR
-INNER JOIN
-SpotifyClone.seguindo S ON S.artista_id = AR.artista_id
-INNER JOIN
-SpotifyClone.albuns AL ON AR.artista_id = AL.artista_id
-GROUP BY 
-AR.artista_nome, AL.album
-ORDER BY 
-seguidores DESC, artista, album;
+a.artista_nome AS artista,
+b.album_nome AS album,
+COUNT(*) AS seguidores
+FROM SpotifyClone.artistas AS a
+INNER JOIN SpotifyClone.albuns AS b ON a.artista_id = b.artista_id
+INNER JOIN SpotifyClone.seguindo AS s ON a.artista_id = s.artista_id
+GROUP BY a.artista_nome, b.album_nome
+ORDER BY seguidores DESC, artista;
+
+-- SELECT * from perfil_artistas;
+-- DROP VIEW perfil_artistas;
+
+-- A primeira coluna deve exibir o nome da pessoa artista, com o alias "artista".
+
+-- A segunda coluna deve exibir o nome do álbum, com o alias "album".
+
+-- A terceira coluna deve exibir a quantidade de pessoas seguidoras que aquela pessoa artista possui e deve possuir o alias "seguidores".
