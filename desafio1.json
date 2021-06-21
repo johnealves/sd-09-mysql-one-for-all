@@ -1,5 +1,5 @@
 {
-  "coluna_usuario": "id_user",
+  "coluna_usuario": "user_name",
   "tabela_que_contem_usuario": "users",
   "coluna_plano": "id_plan",
   "tabela_que_contem_plano": "plans",
