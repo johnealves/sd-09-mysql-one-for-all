@@ -9,5 +9,5 @@ INNER JOIN SpotifyClone.seguindo AS s ON a.artista_id = s.artista_id
 GROUP BY a.artista_nome, b.album_nome
 ORDER BY seguidores DESC, artista, album;
 
-SELECT * from perfil_artistas;
+-- SELECT * from perfil_artistas;
 -- DROP VIEW perfil_artistas;
