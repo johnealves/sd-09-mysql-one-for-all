@@ -11,9 +11,3 @@ ORDER BY seguidores DESC, artista;
 
 -- SELECT * from perfil_artistas;
 -- DROP VIEW perfil_artistas;
-
--- A primeira coluna deve exibir o nome da pessoa artista, com o alias "artista".
-
--- A segunda coluna deve exibir o nome do álbum, com o alias "album".
-
--- A terceira coluna deve exibir a quantidade de pessoas seguidoras que aquela pessoa artista possui e deve possuir o alias "seguidores".
