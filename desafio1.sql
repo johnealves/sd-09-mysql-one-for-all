@@ -1,21 +1,19 @@
 DROP DATABASE IF EXISTS SpotifyClone;
-
 CREATE DATABASE SpotifyClone;
-
 USE SpotifyClone;
 
-CREATE TABlE plans (
+CREATE TABLE plan (
 	plan_id INT PRIMARY KEY AUTO_INCREMENT,
   plan_name VARCHAR(50) NOT NULL,
   plan_valor DECIMAL(5,2) NOT NULL
 ) ENGINE = InnoDB;
 
-CREATE TABLE users (
+CREATE TABLE user (
 	user_id INT PRIMARY KEY AUTO_INCREMENT,
   user_name VARCHAR(50) NOT NULL,
   user_age INT NOT NULL,
   plan_id INT NOT NULL,
-  FOREIGN KEY (plan_id) REFERENCES plans(plan_id)
+  FOREIGN KEY (plan_id) REFERENCES plan(plan_id)
 ) ENGINE = InnoDB;
 
 CREATE TABLE artist (
@@ -23,94 +21,109 @@ CREATE TABLE artist (
   artist_name VARCHAR(50) NOT NULL
 ) ENGINE = InnoDB;
 
-CREATE TABLE albums (
+CREATE TABLE album (
 	album_id INT PRIMARY KEY AUTO_INCREMENT,
   album_name VARCHAR(50) NOT NULL,
   artist_id INT NOT NULL,
   FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
 ) ENGINE = InnoDB;
 
-CREATE TABLE songs (
+CREATE TABLE song (
 	song_id INT PRIMARY KEY AUTO_INCREMENT,
   song_name VARCHAR(200) NOT NULL,
-  album_id INT NOT NULL
-  FOREIGN KEY (album_id) REFERENCES albums(album_id)
+  album_id INT NOT NULL,
+  FOREIGN KEY (album_id) REFERENCES album(album_id)
 ) ENGINE = InnoDB;
 
 CREATE TABLE history (
   user_id INT NOT NULL,
   song_id INT NOT NULL,
-  FOREIGN KEY (song_id) REFERENCES users(user_id),
-  FOREIGN KEY (song_id) REFERENCES songs(song_id),
+  FOREIGN KEY (user_id) REFERENCES user(user_id),
+  FOREIGN KEY (song_id) REFERENCES song(song_id),
   PRIMARY KEY (user_id, song_id)
 ) ENGINE = InnoDB;
 
 CREATE TABLE follow (
   user_id INT NOT NULL,
   artist_id INT NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(user_id),
+  FOREIGN KEY (user_id) REFERENCES user(user_id),
   FOREIGN KEY (artist_id) REFERENCES artist(artist_id),
   PRIMARY KEY (user_id, artist_id)
 );
 
 INSERT INTO artist (artist_name)
 VALUES
-("Royal Blood"),
-("Highly Suspect"),
-("The Fallen State"),
-("Nirvana");
+("Walter Phoenix"),
+("Peter Strong"),
+("Lance Day"),
+("Freedie Shannon");
 
-INSERT INTO plans (plan_name, plan_valor)
+INSERT INTO plan (plan_name, plan_valor) 
 VALUES
-("Individual", 19,90),
-("familia", 34.90),
-("universitario", 9.90);
+("gratuito", 0.00),
+("familia", 7.99),
+("universitario", 5.99);
 
-INSERT INTO albums (album_name, artist_id)
+INSERT INTO album (album_name, artist_id) 
 VALUES
-("Royal Blood", 1),
-("The Boy Who Die Wolf", 2),
-("Nova",3),
-("Nevermind", 4),
+("Envious", 1),
+("Exuberant", 1),
+("Hallowed Steam", 2),
+("Incandescent", 3),
+("Temporary Culture", 4);
 
-
-INSERT INTO users (user_name, user_age, plan_id)
+INSERT INTO user (user_name, user_age, plan_id) 
 VALUES
-("Felipe", 32, 1),
-("Gomes", 33, 2),
-("Luna", 34, 3),
+("Thati", 23, 1),
+("Cintia", 35, 2),
+("Bill", 20, 3),
+("Roger", 45, 1);
 
-INSERT INTO songs (song_name, album_id)
+INSERT INTO song (song_name, album_id)
 VALUES
-("Figure It Out", 1),
-("Little Brother", 1),
-("Out of the Black", 1),
-("Oblivion", 1),
-("Blood Hands", 1),
-("Teen tonne Skeleton", 1),
-("Come on Over", 2),
-("Who Needs Friends", 2),
-("In Bloom", 4);
-
-INSERT INTO follow (user_id, artist_id)
-VALUES
-(1,	1),
-(1,	2),
-(1,	3),
-(2,	1),
-(2,	2),
-(3,	1),
-(3,	2),
-(3,	4);
+("Soul For Us", 1),
+("Reflections Of Magic", 1),
+("Dance With Her Own", 1),
+("Troubles Of My Inner Fire", 2),
+("Time Fireworks", 2),
+("Magic Circus", 3),
+("Honey, So Do I", 3),
+("Sweetie, Let's Go Wild", 3),
+("She Knows", 3),
+("Fantasy For Me", 4),
+("Celebration Of More", 4),
+("Rock His Everything", 4),
+("Home Forever", 4),
+("Diamond Power", 4),
+("Honey, Let's Be Silly", 4),
+("Thang Of Thunder", 5),
+("Words Of Her Life", 5),
+("Without My Streets", 5);
 
 INSERT INTO history (user_id, song_id)
 VALUES
 (1,	1),
-(1,	2),
-(1,	3),
+(1,	14),
+(1,	16),
+(1,	6),
+(2,	17),
+(2,	2),
+(2,	13),
+(3,	4),
+(3,	16),
+(2,	15),
+(4,	3),
+(4,	18),
+(3,	6),
+(4,	11);
+
+INSERT INTO follow (user_id, artist_id)
+VALUES
 (1,	4),
-(2,	5),
-(2,	6),
-(2,	7),
-(2,	8),
-(3,	9),
+(1,	3),
+(1,	1),
+(2,	3),
+(3,	2),
+(3,	1),
+(2,	1),
+(4,	4);
