@@ -38,17 +38,19 @@ CREATE TABLE usuarios(
 ) engine = InnoDB;
 
 CREATE TABLE historico_reproducoes(
-	historico_id INT NOT NULL PRIMARY KEY,
+	historico_id INT NOT NULL,
     usuario_id INT NOT NULL,
     cancao_id INT NOT NULL,
+    CONSTRAINT PRIMARY KEY (historico_id, usuario_id, cancao_id),
     CONSTRAINT FOREIGN KEY(usuario_id) REFERENCES usuarios (usuario_id),
     CONSTRAINT FOREIGN KEY(cancao_id) REFERENCES cancoes (cancao_id)
 ) engine = InnoDB;
 
 CREATE TABLE seguindo_artistas(
-	seguir_id INT NOT NULL PRIMARY KEY,
+	seguir_id INT NOT NULL,
     usuario_id INT NOT NULL,
     artista_id INT NOT NULL,
+    CONSTRAINT PRIMARY KEY (seguir_id, usuario_id, artista_id),
     CONSTRAINT FOREIGN KEY(usuario_id) REFERENCES usuarios (usuario_id),
     CONSTRAINT FOREIGN KEY(artista_id) REFERENCES artistas (artista_id)
 ) engine = InnoDB;
