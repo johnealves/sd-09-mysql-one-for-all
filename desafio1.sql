@@ -78,10 +78,10 @@ INSERT INTO musicas (nome, album_id, artista_id) VALUES
 ('Rock His Everything', 4, 3),
 ('Home Forever', 4, 3),
 ('Diamond Power', 4, 3),
-('Honey, Let´s Be Silly', 4, 3),
+("Honey, Let's Be Silly", 4, 3),
 ('Thang Of Thunder', 5, 4),
 ('Words Of Her Life', 5, 4),
-('Withut My Streets', 5, 4);
+('Without My Streets', 5, 4);
  
 CREATE TABLE seguidores(
   usuario_id INT NOT NULL,
