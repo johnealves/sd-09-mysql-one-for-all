@@ -4,7 +4,18 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE usuarios (
+CREATE TABLE SpotifyClone.`planos` (
+  plano_id INT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(100) NOT NULL,
+  valor_plano DECIMAL(4, 2) NOT NULL,
+)
+
+INSERT INTO planos (nome, valor_plano) VALUES
+('gratuito', '0.00'),
+('universitário', '5.99'),
+('familiar', '7.99'),
+
+CREATE TABLE SpotifyClone.`usuarios` (
   usuario_id INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
   idade INT NOT NULL,
@@ -18,16 +29,17 @@ INSERT INTO usuarios (nome, idade, plano_id) VALUES
 ('Bill', 20, 2),
 ('Roger', 45, 1),
 
-CREATE TABLE planos (
-  plano_id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE artistas (
+  artista_id INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
-  valor_plano DECIMAL(4, 2) NOT NULL,
 )
 
-INSERT INTO planos (nome, valor_plano) VALUES
-('gratuito', '0.00'),
-('universitário', '5.99'),
-('familiar', '7.99'),
+INSERT INTO artistas (nome) VALUES
+('Walter Phoenix'),
+('Peter Strong'),
+('Lance Day'),
+('artista quatro'),
+('Freedie Shannon'),
 
 CREATE TABLE albuns (
   album_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -42,18 +54,6 @@ INSERT INTO albuns (nome, artista_id) VALUES
 ('Hallowed Steam', 2),
 ('Incandescent', 3),
 ('Temporary Culture', 4);
-
-CREATE TABLE artistas (
-  artista_id INT PRIMARY KEY AUTO_INCREMENT,
-  nome VARCHAR(100) NOT NULL,
-)
-
-INSERT INTO artistas (nome) VALUES
-('Walter Phoenix'),
-('Peter Strong'),
-('Lance Day'),
-('artista quatro'),
-('Freedie Shannon'),
 
 CREATE TABLE musicas (
   musica_id INT PRIMARY KEY AUTO_INCREMENT,
