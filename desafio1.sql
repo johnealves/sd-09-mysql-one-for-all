@@ -29,3 +29,18 @@ INSERT INTO planos (nome, valor_plano) VALUES
 ('Básico', '10.00'),
 ('Médio', '20.00'),
 ('Avançado', '30.00'),
+
+CREATE TABLE albuns (
+  album_id INT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(100) NOT NULL,
+  artista_id INT NOT NULL,
+  FOREIGN KEY (artista_id) REFERENCES SpotifyClone.artistas(artista_id)
+)
+
+INSERT INTO albuns (nome, artista_id) VALUES
+('album um', 3),
+('album dois', 1),
+('album três', 2),
+('album quatro', 1),
+('album cinco', 2);
+
