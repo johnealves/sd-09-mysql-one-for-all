@@ -11,6 +11,7 @@ CREATE TABLE planos (
     plano_valor DECIMAL(6 , 2 )
 )  ENGINE=INNODB;
 
+
 CREATE TABLE usuarios (
     usuario_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(100),
@@ -20,10 +21,12 @@ CREATE TABLE usuarios (
         REFERENCES planos (plano_id)
 )  ENGINE=INNODB;
 
+
 CREATE TABLE artistas (
     artista_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     artista VARCHAR(100)
 )  ENGINE=INNODB;
+
 
 CREATE TABLE seguindo_artistas (
     usuario_id INT NOT NULL,
@@ -34,6 +37,7 @@ CREATE TABLE seguindo_artistas (
     FOREIGN KEY (artista_id)
         REFERENCES artistas (artista_id)
 )  ENGINE=INNODB;
+
 
 CREATE TABLE albuns (
     album_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -53,10 +57,6 @@ CREATE TABLE cancoes (
 )  ENGINE=INNODB;
 
 
-
-
-
-
 CREATE TABLE historico_de_reproducoes (
     usuario_id INT NOT NULL,
     cancao_id INT NOT NULL,
@@ -66,21 +66,6 @@ CREATE TABLE historico_de_reproducoes (
     FOREIGN KEY (cancao_id)
         REFERENCES cancoes (cancao_id)
 )  ENGINE=INNODB;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 INSERT INTO
@@ -122,7 +107,6 @@ VALUES
     (4, 4);
     
     
-
 INSERT INTO
     albuns(album, artista_id)
 VALUES
@@ -131,6 +115,7 @@ VALUES
     ('Hallowed Steam', 2),
     ('Incandescent', 3),
     ('Temporary Culture', 4);
+
 
 INSERT INTO
     cancoes(cancao, album_id)
@@ -153,7 +138,6 @@ VALUES
 ("Thang Of Thunder", 5),
     ("Words Of Her Life", 5),
     ("Without My Streets", 5);
-
 
 
 INSERT INTO
