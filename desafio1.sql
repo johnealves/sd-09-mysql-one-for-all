@@ -13,11 +13,10 @@ CREATE TABLE usuarios (
 )
 
 INSERT INTO usuarios (nome, idade, plano_id) VALUES
-('Rodrigo', 36, 3),
-('Vilene', 43, 1),
-('Maria', 67, 2),
-('Marivone', 25, 1),
-('Newton', 73, 2);
+('Thati', 23, 1),
+('Cintia', 35, 3),
+('Bill', 20, 2),
+('Roger', 45, 1),
 
 CREATE TABLE planos (
   plano_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -26,9 +25,9 @@ CREATE TABLE planos (
 )
 
 INSERT INTO planos (nome, valor_plano) VALUES
-('Básico', '10.00'),
-('Médio', '20.00'),
-('Avançado', '30.00'),
+('gratuito', '0.00'),
+('universitário', '5.99'),
+('familiar', '7.99'),
 
 CREATE TABLE albuns (
   album_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -38,11 +37,11 @@ CREATE TABLE albuns (
 )
 
 INSERT INTO albuns (nome, artista_id) VALUES
-('album um', 3),
-('album dois', 1),
-('album três', 2),
-('album quatro', 1),
-('album cinco', 2);
+('Envious', 1),
+('Exuberant', 1),
+('Hallowed Steam', 2),
+('Incandescent', 3),
+('Temporary Culture', 4);
 
 CREATE TABLE artistas (
   artista_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -50,11 +49,11 @@ CREATE TABLE artistas (
 )
 
 INSERT INTO artistas (nome) VALUES
-('artista um'),
-('artista dois'),
-('artista três'),
+('Walter Phoenix'),
+('Peter Strong'),
+('Lance Day'),
 ('artista quatro'),
-('artista cinco'),
+('Freedie Shannon'),
 
 CREATE TABLE musicas (
   musica_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -66,11 +65,24 @@ CREATE TABLE musicas (
 )
 
 INSERT INTO musicas (nome, album_id, artista_id) VALUES
-('Música um', 1, 3),
-('Música dois', 2, 1),
-('Música três', 3, 2),
-('Música quatro', 4, 5),
-('Música cinco', 5, 4);
+('Soul For Us', 1, 1),
+('Reflections Of Magic', 1, 1),
+('Dance With Her Own', 1, 1),
+('Troubles Of My Inner Fire', 2, 1),
+('Time Fireworks', 2, 1);
+('Magic Circus', 3, 2);
+('honey, So Do I', 3, 2);
+('Sweetie, Let´s Go Wild', 3, 2);
+('She Knows', 3, 2);
+('Fantasy For Me', 4, 3);
+('Celebration Of More', 4, 3);
+('Rock His Everything', 4, 3);
+('Home Forever', 4, 3);
+('Diamond Power', 4, 3);
+('Honey, Let´s Be Silly', 4, 3);
+('Thang Of Thunder', 5, 4);
+('Words Of Her Life', 5, 4);
+('Withut My Streets', 5, 4);
  
 CREATE TABLE seguidores (
   usuario_id INT NOT NULL,
@@ -81,11 +93,14 @@ CREATE TABLE seguidores (
 )
 
 INSERT INTO seguidores ('usuario_id', 'artista_id') VALUES
+(1, 1),
+(1, 4),
 (1, 3),
 (2, 1),
-(3, 2),
-(4, 5),
-(5, 4);
+(2, 3);
+(3, 2);
+(3, 1);
+(4, 4);
 
 CREATE TABLE historico (
   usuario_id INT NOT NULL,
@@ -96,8 +111,18 @@ CREATE TABLE historico (
 )
 
 INSERT INTO historico ('usuario_id', 'musica_id') VALUES
-(1, 3),
-(2, 1),
-(3, 2),
-(4, 5),
-(5, 4);
+(1, 1),
+(1, 6),
+(1, 14),
+(1, 16),
+(2, 13);
+(2, 17),
+(2, 2),
+(2, 15),
+(3, 4),
+(3, 16);
+(3, 6),
+(4, 3),
+(4, 18),
+(4, 11),
+
