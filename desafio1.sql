@@ -56,3 +56,20 @@ INSERT INTO artistas (nome) VALUES
 ('artista quatro'),
 ('artista cinco'),
 
+CREATE TABLE musicas (
+  musica_id INT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(100) NOT NULL,
+  album_id INT NOT NULL,
+  artista_id INT NOT NULL,
+  FOREIGN KEY (album_id) REFERENCES SpotifyClone.albuns(album_id),
+  FOREIGN KEY (artista_id) REFERENCES SpotifyClone.artistas(artista_id)
+)
+
+INSERT INTO musicas (nome, album_id, artista_id) VALUES
+('Música um', 1, 3),
+('Música dois', 2, 1),
+('Música três', 3, 2),
+('Música quatro', 4, 5),
+('Música cinco', 5, 4);
+
+
