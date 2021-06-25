@@ -87,3 +87,17 @@ INSERT INTO seguidores ('usuario_id', 'artista_id') VALUES
 (4, 5),
 (5, 4);
 
+CREATE TABLE historico (
+  usuario_id INT NOT NULL,
+  musica_id INT NOT NULL,
+  CONSTRAINT PRIMARY KEY ('usuario_id', 'musica_id'),
+  FOREIGN KEY (usuario_id) REFERENCES SpotifyClone.usuarios(usuario_id),
+  FOREIGN KEY (musica_id) REFERENCES SpotifyClone.musicas(musica_id)
+)
+
+INSERT INTO historico ('usuario_id', 'musica_id') VALUES
+(1, 3),
+(2, 1),
+(3, 2),
+(4, 5),
+(5, 4);
