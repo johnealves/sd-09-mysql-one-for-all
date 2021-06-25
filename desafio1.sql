@@ -33,7 +33,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`usuario_ID`),
   KEY `plano_ID` (`plano_ID`),
   CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`plano_ID`) REFERENCES `planos` (`plano_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 CREATE TABLE `cancoes` (
   `cancoes_ID` int NOT NULL AUTO_INCREMENT,
@@ -42,7 +42,7 @@ CREATE TABLE `cancoes` (
   PRIMARY KEY (`cancoes_ID`),
   KEY `album_ID` (`album_ID`),
   CONSTRAINT `cancoes_ibfk_1` FOREIGN KEY (`album_ID`) REFERENCES `album` (`album_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 CREATE TABLE `historico_de_reproducoes` (
   `usuario_ID` int NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `historico_de_reproducoes` (
   KEY `cancoes_ID` (`cancoes_ID`),
   CONSTRAINT `historico_de_reproducoes_ibfk_1` FOREIGN KEY (`usuario_ID`) REFERENCES `usuarios` (`usuario_ID`),
   CONSTRAINT `historico_de_reproducoes_ibfk_2` FOREIGN KEY (`cancoes_ID`) REFERENCES `cancoes` (`cancoes_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 CREATE TABLE `seguindo` (
   `usuario_ID` int NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `seguindo` (
   KEY `artista_ID` (`artista_ID`),
   CONSTRAINT `seguindo_ibfk_1` FOREIGN KEY (`usuario_ID`) REFERENCES `usuarios` (`usuario_ID`),
   CONSTRAINT `seguindo_ibfk_2` FOREIGN KEY (`artista_ID`) REFERENCES `artista` (`artista_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 INSERT INTO planos(plano, valor_plano)
 VALUES
