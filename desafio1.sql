@@ -75,7 +75,7 @@ INSERT INTO musicas (nome, album_id, artista_id) VALUES
 CREATE TABLE seguidores (
   usuario_id INT NOT NULL,
   artista_id INT NOT NULL,
-  CONSTRAINT PRIMARY LEY ('usuario_id', 'artista_id'),
+  CONSTRAINT PRIMARY KEY ('usuario_id', 'artista_id'),
   FOREIGN KEY (usuario_id) REFERENCES SpotifyClone.usuarios(usuario_id),
   FOREIGN KEY (artista_id) REFERENCES SpotifyClone.artistas(artista_id)
 )
