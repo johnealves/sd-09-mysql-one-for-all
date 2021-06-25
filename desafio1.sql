@@ -44,3 +44,15 @@ INSERT INTO albuns (nome, artista_id) VALUES
 ('album quatro', 1),
 ('album cinco', 2);
 
+CREATE TABLE artistas (
+  artista_id INT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(100) NOT NULL,
+)
+
+INSERT INTO artistas (nome) VALUES
+('artista um'),
+('artista dois'),
+('artista três'),
+('artista quatro'),
+('artista cinco'),
+
